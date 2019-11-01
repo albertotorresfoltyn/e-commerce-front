@@ -12,9 +12,8 @@ const Home = () => {
     
     const loadProductsBySell = () => {
         getProducts('sold').then( data => {
-            if ((!data) || (data.error)) {
-                if (!data) { console.log('data is empty') }
-                else { console.log(data.error) }
+            if (data.error) {
+                setError(data.error)
             } else {
                 setProductBySell(data)
             }
@@ -23,9 +22,8 @@ const Home = () => {
 
     const loadProductsByArrival = () => {
         getProducts('createdAt').then( data => {
-            if ((!data) || (data.error)) {
-                if (!data) { console.log('data is empty') }
-                else { console.log(data.error) }
+            if (data.error) {
+                setError(data.error)
             } else {
                 setProductByArrival(data)
             }
