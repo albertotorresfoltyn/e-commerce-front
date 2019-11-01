@@ -15,30 +15,18 @@ const isActive = (history, path) => {
 //this way we have access to prop.history
 const Menu = ({ history }) => (
     <>
-    <MDBNavbar color="unique-color-dark" expand="md">
+    <MDBNavbar color="26333c" expand="md">
         <MDBCollapse id="navbarCollapse3" isOpen={true} navbar>
           <MDBNavbarNav left>
             <MDBNavItem active>
-              <MDBNavLink to="/">Home</MDBNavLink>
+              <MDBNavLink to="#!">Home</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="/shop">Shop</MDBNavLink>
+              <MDBNavLink to="#!">Features</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="/cart">Cart{" "}<sup>
-                                    <small className="cart-badge">{itemTotal()}</small>
-                                </sup></MDBNavLink>
+              <MDBNavLink to="#!">Pricing</MDBNavLink>
             </MDBNavItem>
-            {isAuthenticated() && isAuthenticated().user.role === 0 && (
-                    <MDBNavItem>
-                        <MDBNavLink to="/user/dashboard">Dashboard</MDBNavLink>
-                        </MDBNavItem>
-              )}
-                          {isAuthenticated() && isAuthenticated().user.role === 1 && (
-                    <MDBNavItem>
-                        <MDBNavLink to="/admin/dashboard">Dashboard</MDBNavLink>
-                        </MDBNavItem>
-              )}
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>

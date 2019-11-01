@@ -2,8 +2,10 @@ import React, {Fragment} from 'react'
 import {Link, withRouter} from 'react-router-dom';
 import { signout, isAuthenticated } from '../auth'
 import { itemTotal } from './cartHelpers'
-import { MDBNavbar, /*MDBNavbarBrand,*/ MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
-    MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon } from "mdbreact";
+import {
+    MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
+    MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
+    } from "mdbreact";
 const isActive = (history, path) => {
     if (history.location.pathname === path){
         return { color: "#ff9900" };   
@@ -15,30 +17,22 @@ const isActive = (history, path) => {
 //this way we have access to prop.history
 const Menu = ({ history }) => (
     <>
-    <MDBNavbar color="unique-color-dark" expand="md">
-        <MDBCollapse id="navbarCollapse3" isOpen={true} navbar>
+    <MDBNavbar color="default-color" dark expand="md">
+        <MDBNavbarBrand>
+          <strong className="white-text">Navbar</strong>
+        </MDBNavbarBrand>
+        <MDBNavbarToggler onClick={this.toggleCollapse} />
+        <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
           <MDBNavbarNav left>
             <MDBNavItem active>
-              <MDBNavLink to="/">Home</MDBNavLink>
+              <MDBNavLink to="#!">Home</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="/shop">Shop</MDBNavLink>
+              <MDBNavLink to="#!">Features</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="/cart">Cart{" "}<sup>
-                                    <small className="cart-badge">{itemTotal()}</small>
-                                </sup></MDBNavLink>
+              <MDBNavLink to="#!">Pricing</MDBNavLink>
             </MDBNavItem>
-            {isAuthenticated() && isAuthenticated().user.role === 0 && (
-                    <MDBNavItem>
-                        <MDBNavLink to="/user/dashboard">Dashboard</MDBNavLink>
-                        </MDBNavItem>
-              )}
-                          {isAuthenticated() && isAuthenticated().user.role === 1 && (
-                    <MDBNavItem>
-                        <MDBNavLink to="/admin/dashboard">Dashboard</MDBNavLink>
-                        </MDBNavItem>
-              )}
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>
@@ -69,7 +63,7 @@ const Menu = ({ history }) => (
                 <MDBDropdownToggle nav caret>
                   <MDBIcon icon="user" />
                 </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown">
+                <MDBDropdownMenu className="dropdown-default">
                   <MDBDropdownItem href="#!">Action</MDBDropdownItem>
                   <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
                   <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>

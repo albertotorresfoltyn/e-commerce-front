@@ -29,16 +29,6 @@ const Menu = ({ history }) => (
                                     <small className="cart-badge">{itemTotal()}</small>
                                 </sup></MDBNavLink>
             </MDBNavItem>
-            {isAuthenticated() && isAuthenticated().user.role === 0 && (
-                    <MDBNavItem>
-                        <MDBNavLink to="/user/dashboard">Dashboard</MDBNavLink>
-                        </MDBNavItem>
-              )}
-                          {isAuthenticated() && isAuthenticated().user.role === 1 && (
-                    <MDBNavItem>
-                        <MDBNavLink to="/admin/dashboard">Dashboard</MDBNavLink>
-                        </MDBNavItem>
-              )}
             <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>
