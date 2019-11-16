@@ -5,7 +5,7 @@ import {  MDBCardImage } from "mdbreact";
 
 const ShowImage = ({ item, url }) => (
 
-    <MDBCardImage cascade top src={`${API}/${url}/photo/${item._id}`}
+    <MDBCardImage className="m-auto maxWidth150" cascade top src={`${API}/${url}/photo/${item._id}`}
     waves />
 
     // <div className="product-img">
