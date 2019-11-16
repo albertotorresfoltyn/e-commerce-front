@@ -102,7 +102,11 @@ const Search = () => {
                         onChange={handleChange("search")}
                         placeholder="Busqueda por Nombre"
                     />
+                    <input className="form-control mr-sm-2" type="text" placeholder="Busqueda por nombre" aria-label="Busqueda por Nombre" onChange={handleChange("search")}/>
                     <MDBBtn color="unique" rounded size="sm" type="submit" className="mr-auto">Buscar</MDBBtn>
+                </div>
+                <div className="btn input-group-append" style={{ border: 'none' }}>
+                    <button className="input-group-text">Buscar</button>
                 </div>
             </span>
         </form>
