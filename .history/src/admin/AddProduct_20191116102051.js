@@ -109,7 +109,7 @@ const AddProduct = () => {
             </div>
             <div  className="form-group">
                 <label >Price</label>
-                <input className="form-control" onChange={handleChange("price")} type="number"  value={price} />
+                <input className="form-group" onChange={handleChange("price")} type="number"  value={price} />
             </div>
             <div  className="form-group">
                 <label >Category</label> 

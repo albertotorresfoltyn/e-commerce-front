@@ -77,6 +77,7 @@ const AddProduct = () => {
         {<form onSubmit={clickSubmit}>
             <h4>Post Photo</h4>
             <div >
+                
                 <div className="input-group">
                     <div className="input-group-prepend">
                         <span className="input-group-text" id="inputGroupFileAddon01">
@@ -99,19 +100,19 @@ const AddProduct = () => {
                     </div>
                 </div>
             </div>
-            <div  className="form-group">
-            <label htmlFor="formGroupExampleInput">Name</label>
-                <input className="form-control" onChange={handleChange("name")} type="text"  value={name} />
+            <div >
+                <label >Name</label>
+                <input onChange={handleChange("name")} type="text"  value={name} />
             </div>
-            <div className="form-group">
+            <div >
                 <label >Description</label>
-                <textarea className="form-control" rows="3" onChange={handleChange("description")}  value={description} />
+                <textarea onChange={handleChange("description")}  value={description} />
             </div>
-            <div  className="form-group">
+            <div >
                 <label >Price</label>
-                <input className="form-control" onChange={handleChange("price")} type="number"  value={price} />
+                <input onChange={handleChange("price")} type="number"  value={price} />
             </div>
-            <div  className="form-group">
+            <div >
                 <label >Category</label> 
                 <select className="browser-default custom-select" onChange={handleChange("category")}>
                     <option disabled selected>Please Select..</option> 
@@ -122,7 +123,7 @@ const AddProduct = () => {
                     )})}
                 </select>
             </div>
-            <div  className="form-group">
+            <div >
                 <label >Shipping</label>
                 <select className="browser-default custom-select" onChange={handleChange("shipping")} >
                     <option>Please Select..</option>
@@ -132,7 +133,7 @@ const AddProduct = () => {
             </div>
             <div >
                 <label >Quantity</label>
-                <input className="form-control" onChange={handleChange("quantity")} type="number"  value={quantity} />
+                <input onChange={handleChange("quantity")} type="number"  value={quantity} />
             </div>
             <button className="btn btn-outline-primary">Create Product</button>
         </form>}

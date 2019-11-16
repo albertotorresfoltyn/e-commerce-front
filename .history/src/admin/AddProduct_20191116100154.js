@@ -77,44 +77,35 @@ const AddProduct = () => {
         {<form onSubmit={clickSubmit}>
             <h4>Post Photo</h4>
             <div >
-                <div className="input-group">
-                    <div className="input-group-prepend">
-                        <span className="input-group-text" id="inputGroupFileAddon01">
-                        Upload
-                        </span>
-                    </div>
-                    <div className="custom-file">
-                        <input
-                        type="file"
-                        className="custom-file-input"
-                        id="inputGroupFile01"
-                        aria-describedby="inputGroupFileAddon01"
-                        onChange={handleChange('photo')}
-                        name="photo"
-                        accept="image/*"
-                        />
-                        <label className="custom-file-label" htmlFor="inputGroupFile01">
-                        Choose file
-                        </label>
-                    </div>
-                </div>
+                <label>
+                    <input onChange={handleChange('photo')} type="file"name="photo" accept="image/*" />
+                </label>
             </div>
-            <div  className="form-group">
-            <label htmlFor="formGroupExampleInput">Name</label>
-                <input className="form-control" onChange={handleChange("name")} type="text"  value={name} />
+            <div >
+                <label >Name</label>
+                <input onChange={handleChange("name")} type="text"  value={name} />
             </div>
-            <div className="form-group">
+            <div >
                 <label >Description</label>
-                <textarea className="form-control" rows="3" onChange={handleChange("description")}  value={description} />
+                <textarea onChange={handleChange("description")}  value={description} />
             </div>
-            <div  className="form-group">
+            <div >
                 <label >Price</label>
-                <input className="form-control" onChange={handleChange("price")} type="number"  value={price} />
+                <input onChange={handleChange("price")} type="number"  value={price} />
             </div>
-            <div  className="form-group">
+            <div >
                 <label >Category</label> 
-                <select className="browser-default custom-select" onChange={handleChange("category")}>
-                    <option disabled selected>Please Select..</option> 
+                <select  className="browser-default custom-select" searchable="Search here..">
+                    <option value="" disabled selected>Choose your country</option>
+                    <option value="1">USA</option>
+                    <option value="2">Germany</option>
+                    <option value="3">France</option>
+                    <option value="3">Poland</option>
+                    <option value="3">Japan</option>
+                    </select>
+                <label class="mdb-main-label">Label example</label>
+                <select  className="browser-default custom-select" onChange={handleChange("category")}>
+                    <option>Please Select..</option> 
                     {categories && categories.map((c, i) => {debugger; return(
                         <option key={i} value={c._id}>
                             {c.name}
@@ -122,7 +113,7 @@ const AddProduct = () => {
                     )})}
                 </select>
             </div>
-            <div  className="form-group">
+            <div >
                 <label >Shipping</label>
                 <select className="browser-default custom-select" onChange={handleChange("shipping")} >
                     <option>Please Select..</option>
@@ -132,7 +123,7 @@ const AddProduct = () => {
             </div>
             <div >
                 <label >Quantity</label>
-                <input className="form-control" onChange={handleChange("quantity")} type="number"  value={quantity} />
+                <input onChange={handleChange("quantity")} type="number"  value={quantity} />
             </div>
             <button className="btn btn-outline-primary">Create Product</button>
         </form>}
