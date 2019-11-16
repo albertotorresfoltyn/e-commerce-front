@@ -72,24 +72,8 @@ const AddProduct = () => {
             });
     };
 
-        
-    let options = [
-        { checked: currentRoom === "7441", text: "bedroom", value: "7441" },
-        { checked: currentRoom === "7449", text: "bathroom", value: "7449" },
-        { checked: currentRoom === "7474", text: "wc", value: "7474" }
-      ];
 
     const newPostForm = () => (<>
-    <div className={"bar-right-wrapper"} style={{ width: "250px" }}>
-        <div className={"col-12"}>
-          <MDBSelect
-            getValue={this.setRoom}
-            id={"room"}
-            selected={""}
-            options={options}
-          />
-        </div>
-      </div>
         {<form onSubmit={clickSubmit}>
             <h4>Post Photo</h4>
             <div >
@@ -112,11 +96,16 @@ const AddProduct = () => {
                 <label >Price</label>
                 <input onChange={handleChange("price")} type="number"  value={price} />
             </div>
-
+            <select className="browser-default custom-select">
+          <option>Choose your option</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
             <div >
                 <label >Category</label>
                 
-                <select  className="browser-default custom-select" onChange={handleChange("category")}>
+                <select onChange={handleChange("category")}>
                     
                     <option>Please Select..</option> 
                     {categories && categories.map((c, i) => {debugger; return(
@@ -125,11 +114,13 @@ const AddProduct = () => {
                         </option>
                     )})}
 
-                </select>
+                </select>    
+
             </div>
+
             <div >
                 <label >Shipping</label>
-                <select className="browser-default custom-select" onChange={handleChange("shipping")} >
+                <select onChange={handleChange("shipping")} >
 
                     <option>Please Select..</option>
                     <option value="0">No</option>

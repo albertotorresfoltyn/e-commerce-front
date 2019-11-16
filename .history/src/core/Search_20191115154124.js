@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Layout from "./Layout"
 import { getCategories, list } from "./apiCore"
 import Card from "./Card"
-import { MDBCol, MDBFormInline, MDBBtn } from "mdbreact";
 
 const Search = () => {
 
@@ -87,13 +86,14 @@ const Search = () => {
             <span className="input-group-text">
                 <div className="input-group input-group-lg">
                     <div className="input-group-prepend">
-                        <select className="btn mr-2" onChange={handleChange("category")}>
+                        xxx<select className="btn mr-2" onChange={handleChange("category")}>
                             <option value="All">Todas las categorias</option>
-                            { categories.map((c, i) => (
+                            {Array.isArray(categories) && categories.map((c, i) => (
                                 <option key={i} value={c._id}>
                                     {c.name}
                                 </option>
                             ))}
+
                         </select>
                     </div>
 
@@ -103,8 +103,6 @@ const Search = () => {
                         onChange={handleChange("search")}
                         placeholder="Busqueda por Nombre"
                     />
-                    <input className="form-control mr-sm-2" type="text" placeholder="Busqueda por nombre" aria-label="Busqueda por Nombre" onChange={handleChange("search")}/>
-                    <MDBBtn color="unique" rounded size="sm" type="submit" className="mr-auto">Buscar</MDBBtn>
                 </div>
 
                 <div className="btn input-group-append" style={{ border: 'none' }}>

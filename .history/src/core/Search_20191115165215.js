@@ -89,11 +89,12 @@ const Search = () => {
                     <div className="input-group-prepend">
                         <select className="btn mr-2" onChange={handleChange("category")}>
                             <option value="All">Todas las categorias</option>
-                            { categories.map((c, i) => (
+                            {Array.isArray(categories) && categories.map((c, i) => (
                                 <option key={i} value={c._id}>
                                     {c.name}
                                 </option>
                             ))}
+
                         </select>
                     </div>
 
@@ -103,8 +104,10 @@ const Search = () => {
                         onChange={handleChange("search")}
                         placeholder="Busqueda por Nombre"
                     />
-                    <input className="form-control mr-sm-2" type="text" placeholder="Busqueda por nombre" aria-label="Busqueda por Nombre" onChange={handleChange("search")}/>
-                    <MDBBtn color="unique" rounded size="sm" type="submit" className="mr-auto">Buscar</MDBBtn>
+                            <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Busqueda por Nombre" onChange={handleChange("search")}/>
+        <MDBBtn color="unique" rounded size="sm" type="submit" className="mr-auto">
+          Search
+        </MDBBtn>
                 </div>
 
                 <div className="btn input-group-append" style={{ border: 'none' }}>

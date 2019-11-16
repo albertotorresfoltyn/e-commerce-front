@@ -72,12 +72,6 @@ const AddProduct = () => {
             });
     };
 
-        
-    let options = [
-        { checked: currentRoom === "7441", text: "bedroom", value: "7441" },
-        { checked: currentRoom === "7449", text: "bathroom", value: "7449" },
-        { checked: currentRoom === "7474", text: "wc", value: "7474" }
-      ];
 
     const newPostForm = () => (<>
     <div className={"bar-right-wrapper"} style={{ width: "250px" }}>

@@ -3,8 +3,7 @@ import Layout from '../core/Layout';
 import { isAuthenticated } from '../auth';
 import { Link } from 'react-router-dom'; 
 import {createProduct, getCategories } from './apiAdmin'
-import { MDBSelect, MDBSelectInput, MDBSelectOptions, MDBSelectOption, MDBContainer } from "mdbreact";
-import 'bootstrap-css-only/css/bootstrap.min.css';
+import { MDBSelect } from "mdbreact";
 const AddProduct = () => {
     //our state:
     const [values, setValues] = useState({
@@ -72,51 +71,40 @@ const AddProduct = () => {
             });
     };
 
-        
-    let options = [
-        { checked: currentRoom === "7441", text: "bedroom", value: "7441" },
-        { checked: currentRoom === "7449", text: "bathroom", value: "7449" },
-        { checked: currentRoom === "7474", text: "wc", value: "7474" }
-      ];
 
-    const newPostForm = () => (<>
-    <div className={"bar-right-wrapper"} style={{ width: "250px" }}>
-        <div className={"col-12"}>
-          <MDBSelect
-            getValue={this.setRoom}
-            id={"room"}
-            selected={""}
-            options={options}
-          />
-        </div>
-      </div>
-        {<form onSubmit={clickSubmit}>
+    const newPostForm = () => (
+        <form className="mb-3" onSubmit={clickSubmit}>
             <h4>Post Photo</h4>
-            <div >
-                <label>
+            <div className="form-group">
+                <label className="btn btn-secondary">
                     <input onChange={handleChange('photo')} type="file"name="photo" accept="image/*" />
                 </label>
             </div>
 
-            <div >
-                <label >Name</label>
-                <input onChange={handleChange("name")} type="text"  value={name} />
+            <div className="form-group">
+                <label className="text-muted">Name</label>
+                <input onChange={handleChange("name")} type="text" className="form-control" value={name} />
             </div>
 
-            <div >
-                <label >Description</label>
-                <textarea onChange={handleChange("description")}  value={description} />
+            <div className="form-group">
+                <label className="text-muted">Description</label>
+                <textarea onChange={handleChange("description")} className="form-control" value={description} />
             </div>
 
-            <div >
-                <label >Price</label>
-                <input onChange={handleChange("price")} type="number"  value={price} />
+            <div className="form-group">
+                <label className="text-muted">Price</label>
+                <input onChange={handleChange("price")} type="number" className="form-control" value={price} />
             </div>
 
             <div >
                 <label >Category</label>
-                
-                <select  className="browser-default custom-select" onChange={handleChange("category")}>
+                <MDBSelect
+                search
+                options={categories.map(c=>{return {value:c._id, name: c.name}})}
+                selected="Choose your option"
+                label="Example label"
+                />
+                <select onChange={handleChange("category")}>
                     
                     <option>Please Select..</option> 
                     {categories && categories.map((c, i) => {debugger; return(
@@ -125,11 +113,13 @@ const AddProduct = () => {
                         </option>
                     )})}
 
-                </select>
+                </select>    
+
             </div>
-            <div >
-                <label >Shipping</label>
-                <select className="browser-default custom-select" onChange={handleChange("shipping")} >
+
+            <div className="form-group">
+                <label className="text-muted">Shipping</label>
+                <select onChange={handleChange("shipping")} className="form-control">
 
                     <option>Please Select..</option>
                     <option value="0">No</option>
@@ -138,15 +128,14 @@ const AddProduct = () => {
                 </select>    
             </div>
 
-            <div >
-                <label >Quantity</label>
-                <input onChange={handleChange("quantity")} type="number"  value={quantity} />
+            <div className="form-group">
+                <label className="text-muted">Quantity</label>
+                <input onChange={handleChange("quantity")} type="number" className="form-control" value={quantity} />
             </div>
 
             <button className="btn btn-outline-primary">Create Product</button>
 
-        </form>}
-        </>
+        </form>
     );
 
     const showError = () => (

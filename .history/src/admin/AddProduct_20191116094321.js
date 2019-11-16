@@ -72,24 +72,8 @@ const AddProduct = () => {
             });
     };
 
-        
-    let options = [
-        { checked: currentRoom === "7441", text: "bedroom", value: "7441" },
-        { checked: currentRoom === "7449", text: "bathroom", value: "7449" },
-        { checked: currentRoom === "7474", text: "wc", value: "7474" }
-      ];
 
     const newPostForm = () => (<>
-    <div className={"bar-right-wrapper"} style={{ width: "250px" }}>
-        <div className={"col-12"}>
-          <MDBSelect
-            getValue={this.setRoom}
-            id={"room"}
-            selected={""}
-            options={options}
-          />
-        </div>
-      </div>
         {<form onSubmit={clickSubmit}>
             <h4>Post Photo</h4>
             <div >
@@ -127,6 +111,24 @@ const AddProduct = () => {
 
                 </select>
             </div>
+            <MDBSelect
+          options={[
+            {
+              text: "Option 1",
+              value: "1"
+            },
+            {
+              text: "Option 2",
+              value: "2"
+            },
+            {
+              text: "Option 3",
+              value: "3"
+            }
+          ]}
+          selected="Choose your option"
+          label="Example label"
+        />
             <div >
                 <label >Shipping</label>
                 <select className="browser-default custom-select" onChange={handleChange("shipping")} >

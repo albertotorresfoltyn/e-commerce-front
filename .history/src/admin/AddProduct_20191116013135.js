@@ -3,8 +3,8 @@ import Layout from '../core/Layout';
 import { isAuthenticated } from '../auth';
 import { Link } from 'react-router-dom'; 
 import {createProduct, getCategories } from './apiAdmin'
-import { MDBSelect, MDBSelectInput, MDBSelectOptions, MDBSelectOption, MDBContainer } from "mdbreact";
-import 'bootstrap-css-only/css/bootstrap.min.css';
+import { MDBSelect, MDBSelectInput, MDBSelectOptions, MDBSelectOption } from "mdbreact";
+
 const AddProduct = () => {
     //our state:
     const [values, setValues] = useState({
@@ -72,25 +72,20 @@ const AddProduct = () => {
             });
     };
 
-        
-    let options = [
-        { checked: currentRoom === "7441", text: "bedroom", value: "7441" },
-        { checked: currentRoom === "7449", text: "bathroom", value: "7449" },
-        { checked: currentRoom === "7474", text: "wc", value: "7474" }
-      ];
 
     const newPostForm = () => (<>
-    <div className={"bar-right-wrapper"} style={{ width: "250px" }}>
-        <div className={"col-12"}>
-          <MDBSelect
-            getValue={this.setRoom}
-            id={"room"}
-            selected={""}
-            options={options}
-          />
-        </div>
-      </div>
-        {<form onSubmit={clickSubmit}>
+        <MDBSelect label="Example label">
+        <MDBSelectInput selected="Choose your country" />
+        <MDBSelectOptions>
+          <MDBSelectOption disabled>Choose your country</MDBSelectOption>
+          <MDBSelectOption value="1">USA</MDBSelectOption>
+          <MDBSelectOption value="2">Germany</MDBSelectOption>
+          <MDBSelectOption value="3">France</MDBSelectOption>
+          <MDBSelectOption value="4">Poland</MDBSelectOption>
+          <MDBSelectOption value="5">Japan</MDBSelectOption>
+        </MDBSelectOptions>
+      </MDBSelect>
+        <form onSubmit={clickSubmit}>
             <h4>Post Photo</h4>
             <div >
                 <label>
@@ -100,23 +95,23 @@ const AddProduct = () => {
 
             <div >
                 <label >Name</label>
-                <input onChange={handleChange("name")} type="text"  value={name} />
+                <input onChange={handleChange("name")} type="text" className="form-control" value={name} />
             </div>
 
             <div >
                 <label >Description</label>
-                <textarea onChange={handleChange("description")}  value={description} />
+                <textarea onChange={handleChange("description")} className="form-control" value={description} />
             </div>
 
             <div >
                 <label >Price</label>
-                <input onChange={handleChange("price")} type="number"  value={price} />
+                <input onChange={handleChange("price")} type="number" className="form-control" value={price} />
             </div>
 
             <div >
                 <label >Category</label>
                 
-                <select  className="browser-default custom-select" onChange={handleChange("category")}>
+                <select onChange={handleChange("category")}>
                     
                     <option>Please Select..</option> 
                     {categories && categories.map((c, i) => {debugger; return(
@@ -125,11 +120,13 @@ const AddProduct = () => {
                         </option>
                     )})}
 
-                </select>
+                </select>    
+
             </div>
+
             <div >
                 <label >Shipping</label>
-                <select className="browser-default custom-select" onChange={handleChange("shipping")} >
+                <select onChange={handleChange("shipping")} className="form-control">
 
                     <option>Please Select..</option>
                     <option value="0">No</option>
@@ -140,13 +137,12 @@ const AddProduct = () => {
 
             <div >
                 <label >Quantity</label>
-                <input onChange={handleChange("quantity")} type="number"  value={quantity} />
+                <input onChange={handleChange("quantity")} type="number" className="form-control" value={quantity} />
             </div>
 
             <button className="btn btn-outline-primary">Create Product</button>
 
-        </form>}
-        </>
+        </form></>
     );
 
     const showError = () => (
