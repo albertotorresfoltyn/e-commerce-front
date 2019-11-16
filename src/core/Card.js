@@ -1,4 +1,5 @@
  import React, {useState} from 'react';
+ import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBTooltip, MDBCardFooter, MDBBtn, MDBIcon } from "mdbreact";
  import { Link, Redirect } from 'react-router-dom';
  import ShowImage from './ShowImage'
  import moment, { updateLocale } from 'moment'
@@ -18,9 +19,10 @@
         return (
             showViewProductButton && (
                 <Link to={`/product/${product._id}`} className="mr-2">
-                    <button className="btn btn-outline-primary mr-2 mb-2">
-                        View Product
-                    </button>
+                    
+                    <MDBBtn color="blue"> Ver Producto</MDBBtn>
+
+                    
                 </Link>
             )
         )
@@ -41,9 +43,7 @@
 
         const showAddToCart = (showAddToCartButton) => {
             return showAddToCartButton && (
-            <button onClick={addToCart} className="btn btn-outline-warning mt-2 mb-2">
-                Add to cart
-            </button>
+                <MDBBtn onClick={addToCart} color="blue"> Agregar al carrito <MDBIcon icon="shopping-cart"/></MDBBtn>
             )
         }
 
@@ -95,29 +95,45 @@
         }
 
      return (
-                <div className="card">
-                    <div className="card-header name">{product.name}</div>
-                        <div className="card-body">
-                            {shouldRedirect(redirect)}
-                            <ShowImage item={product} url="product"/>
-                                <p className="lead mt-2">{product.description.substring(0, 100)}</p>
-                                <p className="black-10">${product.price}</p>
-                                <p className="black-9">
-                                    Category: {product.category && product.category.name}
-                                </p>
-                                <p className="black-8">
-                                    Added on {moment(product.createdAt).fromNow()}
-                                </p>
-                                    {showStock(product.quantity)}
-                                    <br />
-                                    {showViewButton(showViewProductButton)}
-                                    {showAddToCart(showAddToCartButton)}
-                                    {showRemoveButton(showRemoveProductButton)}
-                                    {showCartUpdateOptions(cartUpdate)}
-                        </div>
-                    </div>
-                    
-     );
+
+            <MDBCard className="m-2" style={{ width: "22rem" }} cascade ecommerce wide>
+                <ShowImage item={product} url="product"/>
+              
+              <MDBCardBody cascade className="text-center">
+                <MDBCardTitle tag="h5">
+               {product.category.name}
+                </MDBCardTitle>
+                <MDBCardTitle>
+                  <a href="#!"><strong>{product.name}</strong></a>
+                </MDBCardTitle>
+               
+                <MDBCardText>
+                {product.description.substring(0, 100)}
+                </MDBCardText>
+                <MDBCardFooter>
+
+                <h4 className="font-weight-bold blue-text">
+                <strong>${product.price}</strong>
+              </h4>
+                  
+                  {showViewButton(showViewProductButton)}
+                {showAddToCart(showAddToCartButton)}
+                {showRemoveButton(showRemoveProductButton)}
+                {showCartUpdateOptions(cartUpdate)}
+                </MDBCardFooter>
+              </MDBCardBody>
+            </MDBCard>
+          );
+        
+        
+    
+
 };
 
-export default Card
+export default Card;
+
+
+
+
+
+
