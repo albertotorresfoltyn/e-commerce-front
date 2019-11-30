@@ -18,12 +18,12 @@
     const showViewButton = (showViewProductButton) => {
         return (
             showViewProductButton && (
-                <Link to={`/product/${product._id}`} className="mr-2">
-                    
-                    <MDBBtn color="blue"> Ver Producto</MDBBtn>
-
-                    
-                </Link>
+                <MDBTooltip placement="top">
+                <MDBBtn tag="a" href={`/product/${product._id}`} target="_blank" color="transparent" size="lg" className="p-1 m-0 mr-2 z-depth-0" >
+                    <MDBIcon icon="eye"/>
+                </MDBBtn>
+                <div>Ver</div>
+              </MDBTooltip>
             )
         )
     }
@@ -43,7 +43,14 @@
 
         const showAddToCart = (showAddToCartButton) => {
             return showAddToCartButton && (
-                <MDBBtn onClick={addToCart} color="blue"> Agregar al carrito <MDBIcon icon="shopping-cart"/></MDBBtn>
+
+                <MDBTooltip placement="top">
+                <MDBBtn onClick={addToCart}  tag="a" color="transparent" size="lg" className="p-1 m-0 z-depth-0" >
+                  <MDBIcon icon="shopping-cart"/>
+                </MDBBtn>
+                <div>Agregar al carrito</div>
+              </MDBTooltip>
+               
             )
         }
 
@@ -95,39 +102,29 @@
         }
 
      return (
-
-            <MDBCard className="m-2" style={{ width: "22rem" }} cascade ecommerce wide>
-                <ShowImage item={product} url="product"/>
-              
-              <MDBCardBody cascade className="text-center">
-                <MDBCardTitle tag="h5">
-               {product.category.name}
-                </MDBCardTitle>
-                <MDBCardTitle>
-                  <a href="#!"><strong>{product.name}</strong></a>
-                </MDBCardTitle>
-               
-                <MDBCardText>
-                {product.description.substring(0, 100)}
-                </MDBCardText>
-                <MDBCardFooter>
-
-                <h4 className="font-weight-bold blue-text">
-                <strong>${product.price}</strong>
-              </h4>
-                  
-                  {showViewButton(showViewProductButton)}
-                {showAddToCart(showAddToCartButton)}
-                {showRemoveButton(showRemoveProductButton)}
-                {showCartUpdateOptions(cartUpdate)}
-                </MDBCardFooter>
-              </MDBCardBody>
-            </MDBCard>
-          );
-        
-        
-    
-
+        <MDBCard className="m-2" style={{ width: "22rem" }} cascade ecommerce narrow>
+             <ShowImage item={product} url="product"/>
+        <MDBCardBody cascade className="text-center">
+          <MDBCardTitle tag="h5">
+          {product.category.name}
+          </MDBCardTitle>
+          <MDBCardTitle>
+            <a href={`/product/${product._id}`} ><strong>{product.name}</strong></a>
+          </MDBCardTitle>
+          <MDBCardText>
+          {product.description.substring(0, 100)}
+          </MDBCardText>
+          <MDBCardFooter>
+            <span className="float-left">${product.price}</span>
+            <span className="float-right"> {showViewButton(showViewProductButton)} {showAddToCart(showAddToCartButton)}</span>
+            {/* TODO: reveer cuando este mas avanzada la funcionalidad */}
+            {showRemoveButton(showRemoveProductButton)} 
+            {showCartUpdateOptions(cartUpdate)}
+          </MDBCardFooter>
+        </MDBCardBody>
+      </MDBCard>
+ );
+   
 };
 
 export default Card;
