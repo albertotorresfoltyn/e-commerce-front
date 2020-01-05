@@ -99,8 +99,8 @@ const Home = () => {
               )
             }
           </div>
-          <div className="row reverse">
-            <MDBBtn right color="yellow">Siguiente</MDBBtn>
+          <div className="row">
+            <MDBBtn color="yellow">Siguiente</MDBBtn>
           </div>
         </div>
       </div>

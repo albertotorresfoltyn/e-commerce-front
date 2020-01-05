@@ -4,8 +4,6 @@ import { getProducts, getPlaces } from './apiCore'
 import Card from './Card'
 import Search from './Search'
 import PlaceCard from './PlaceCard'
-import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBTooltip, MDBCardFooter, MDBBtn, MDBIcon } from "mdbreact";
-
 
 const Home = () => {
   const [productsBySell, setProductBySell] = useState([])
@@ -51,10 +49,9 @@ const Home = () => {
     })
   }
 
-  const toggleInMap = (value) => {
-    debugger;
-    map[value] = !map[value]; console.log('shit', map)
-    setMap({ ...map });
+  const toggleInMap = (value) => {debugger;
+    map[value]=!map[value];console.log('shit',map)
+    setMap({...map});
   }
 
   useEffect(() => {
@@ -92,16 +89,17 @@ const Home = () => {
                 // console.log('state',map[product._id])
                 return <>
                   <div key={product._id} className="col-3 mb-3">
-                    <PlaceCard product={product} onClick={() => { toggleInMap(product._id) }} isSelected={map[product._id]} />
+                    <PlaceCard product={product} onClick={()=>{toggleInMap(product._id)}} isSelected={map[product._id]} />
                   </div>
                 </>
               }
               )
             }
           </div>
-          <div className="row reverse">
-            <MDBBtn right color="yellow">Siguiente</MDBBtn>
+          <div className="row"></div>
+          <MDBBtn color="yellow">Siguiente</MDBBtn>
           </div>
+
         </div>
       </div>
     </Layout>

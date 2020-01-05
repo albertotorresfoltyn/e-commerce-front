@@ -4,8 +4,6 @@ import { getProducts, getPlaces } from './apiCore'
 import Card from './Card'
 import Search from './Search'
 import PlaceCard from './PlaceCard'
-import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBTooltip, MDBCardFooter, MDBBtn, MDBIcon } from "mdbreact";
-
 
 const Home = () => {
   const [productsBySell, setProductBySell] = useState([])
@@ -99,9 +97,9 @@ const Home = () => {
               )
             }
           </div>
-          <div className="row reverse">
-            <MDBBtn right color="yellow">Siguiente</MDBBtn>
-          </div>
+          <MDBBtn className="row">
+            <MDBBtn color="yellow">Siguiente</MDBBtn>
+          </MDBBtn>
         </div>
       </div>
     </Layout>
