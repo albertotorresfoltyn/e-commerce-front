@@ -9,7 +9,7 @@ const Home = () => {
   const [productsBySell, setProductBySell] = useState([])
   const [productsByArrival, setProductByArrival] = useState([])
   const [placesToClean, setPlacesToClean] = useState([])
-  const [map, setMap] = useState({});
+  const [map, setMap] = useState(new Map());
   const [error, setError] = useState(false);
 
   const loadProductsBySell = () => {
@@ -38,20 +38,15 @@ const Home = () => {
         if (!data) { console.log('data is empty') }
         else { console.log(data.error) }
       } else {
-        setPlacesToClean(data);
-        const tmp = {};
-        data.map(d => {
-          tmp[d._id] = false;
-        })
-        debugger;
-        setMap(tmp);
+        setPlacesToClean(data)
       }
     })
   }
 
-  const toggleInMap = (value) => {debugger;
-    map[value]=!map[value];console.log('shit',map)
-    setMap(map);
+  const toggleInMap = (value) => {
+    const RNDM = Math.random().toFixed(5)
+    map.set(value, !map.get(value));
+    setMap(new Map([...map]));
   }
 
   useEffect(() => {
@@ -79,24 +74,17 @@ const Home = () => {
           </div>
         ))}
         </div>*/}
+        <div className="row">
+            <div className="container mb-3">
+      <h1 className="mb-4">Que necesitas limpiar?</h1>
+      <span>Seleccione el/los lugares que quiere limpiar</span>
       <div className="row">
-        <div className="container mb-3">
-          <h1 className="mb-4">Que necesitas limpiar?</h1>
-          <span>Seleccione el/los lugares que quiere limpiar</span>
-          <div className="row">
-            {
-              placesToClean.map((product) => {
-                console.log(map)
-                return <>
-                  {(map[product._id])?<span>{'checked'}</span>:null}
-                  <div key={product._id} className="col-3 mb-3">
-                    <PlaceCard product={product} onClick={()=>{debugger;toggleInMap(product._id)}} />
-                  </div>
-                </>
-              }
-              )
-            }
+        {placesToClean.map((product, i) => (
+          <div key={i} className="col-3 mb-3" onClick={toggleInMap(product.id)}>
+            <PlaceCard product={product} />
           </div>
+        ))}
+        </div>
         </div>
       </div>
     </Layout>

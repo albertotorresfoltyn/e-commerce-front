@@ -19,6 +19,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -31,8 +34,4 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@mdi/js": "^4.7.95",
-    "@mdi/react": "^1.2.1"
-  }
 }

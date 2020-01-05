@@ -19,6 +19,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -32,7 +35,10 @@
     ]
   },
   "devDependencies": {
-    "@mdi/js": "^4.7.95",
-    "@mdi/react": "^1.2.1"
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-react": "^7.17.0"
   }
 }

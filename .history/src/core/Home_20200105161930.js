@@ -41,17 +41,16 @@ const Home = () => {
         setPlacesToClean(data);
         const tmp = {};
         data.map(d => {
-          tmp[d._id] = false;
+          tmp[d.id] = false;
         })
-        debugger;
         setMap(tmp);
       }
     })
   }
 
-  const toggleInMap = (value) => {debugger;
-    map[value]=!map[value];console.log('shit',map)
-    setMap(map);
+  const toggleInMap = (value) => {
+    map[value]=!map[value];
+    setMap({...map});
   }
 
   useEffect(() => {
@@ -85,13 +84,13 @@ const Home = () => {
           <span>Seleccione el/los lugares que quiere limpiar</span>
           <div className="row">
             {
-              placesToClean.map((product) => {
-                console.log(map)
+              placesToClean.map((product, i) => {
                 return <>
-                  {(map[product._id])?<span>{'checked'}</span>:null}
-                  <div key={product._id} className="col-3 mb-3">
-                    <PlaceCard product={product} onClick={()=>{debugger;toggleInMap(product._id)}} />
+                {(map[product.id])?<span>{'checked'}</span>:null}
+                (<div key={i} className="col-3 mb-3" onClick={toggleInMap(product.id)}>
+                  <PlaceCard product={product} />
                   </div>
+                )
                 </>
               }
               )

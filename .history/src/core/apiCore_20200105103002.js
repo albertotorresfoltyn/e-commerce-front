@@ -23,7 +23,7 @@ export const getCategories = () => {
 };
 
 export const getPlaces = () => {
-    return fetch(`${API}/places`, {
+    return fetch(`${API}/place/list`, {
         method: "GET"
     })
         .then(response => {

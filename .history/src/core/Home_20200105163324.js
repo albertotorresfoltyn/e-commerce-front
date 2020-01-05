@@ -50,7 +50,7 @@ const Home = () => {
   }
 
   const toggleInMap = (value) => {debugger;
-    map[value]=!map[value];console.log('shit',map)
+    map[value]=!map[value];
     setMap(map);
   }
 
@@ -85,12 +85,12 @@ const Home = () => {
           <span>Seleccione el/los lugares que quiere limpiar</span>
           <div className="row">
             {
-              placesToClean.map((product) => {
+              placesToClean.map((product, i) => {
                 console.log(map)
                 return <>
                   {(map[product._id])?<span>{'checked'}</span>:null}
-                  <div key={product._id} className="col-3 mb-3">
-                    <PlaceCard product={product} onClick={()=>{debugger;toggleInMap(product._id)}} />
+                  <div key={product._id} className="col-3 mb-3" onClick={()=>{toggleInMap(product._id)}}>
+                    <PlaceCard product={product} onClick={()=>{toggleInMap(product._id)}}/>
                   </div>
                 </>
               }

@@ -3,15 +3,13 @@ import Layout from './Layout'
 import { getProducts, getPlaces } from './apiCore'
 import Card from './Card'
 import Search from './Search'
-import PlaceCard from './PlaceCard'
 
 const Home = () => {
   const [productsBySell, setProductBySell] = useState([])
   const [productsByArrival, setProductByArrival] = useState([])
   const [placesToClean, setPlacesToClean] = useState([])
-  const [map, setMap] = useState({});
-  const [error, setError] = useState(false);
 
+  const [error, setError] = useState(false)
   const loadProductsBySell = () => {
     getProducts('sold').then(data => {
       if ((!data) || (data.error)) {
@@ -38,37 +36,25 @@ const Home = () => {
         if (!data) { console.log('data is empty') }
         else { console.log(data.error) }
       } else {
-        setPlacesToClean(data);
-        const tmp = {};
-        data.map(d => {
-          tmp[d._id] = false;
-        })
-        debugger;
-        setMap(tmp);
+        setPlacesToClean(data)
       }
     })
   }
-
-  const toggleInMap = (value) => {debugger;
-    map[value]=!map[value];console.log('shit',map)
-    setMap(map);
-  }
-
   useEffect(() => {
     loadPlacesToClean()
     loadProductsByArrival()
     loadProductsBySell()
   }, [])
-
   return (
-    <Layout title="E-commerce Limpieza" description="Created by EPA!" className="container-fluid center">
+    <Layout title="E-commerce Limpieza" description="Created by EPA!" className="container-fluid">
       <Search />
-      {/*<h2 className="mb-4">New Arrivals</h2>
+      <h2 className="mb-4">New Arrivals</h2>
       <div className="row">
         {productsByArrival.map((product, i) => (
           <div key={i} className="col-3 mb-3">
             <Card product={product} />
           </div>
+
         ))}
       </div>
       <h2 className="mb-4">Best Sellers</h2>
@@ -78,26 +64,14 @@ const Home = () => {
             <Card product={product} />
           </div>
         ))}
-        </div>*/}
+      </div>
+      <h2 className="mb-4">Que necesitas limpiar?</h2>
       <div className="row">
-        <div className="container mb-3">
-          <h1 className="mb-4">Que necesitas limpiar?</h1>
-          <span>Seleccione el/los lugares que quiere limpiar</span>
-          <div className="row">
-            {
-              placesToClean.map((product) => {
-                console.log(map)
-                return <>
-                  {(map[product._id])?<span>{'checked'}</span>:null}
-                  <div key={product._id} className="col-3 mb-3">
-                    <PlaceCard product={product} onClick={()=>{debugger;toggleInMap(product._id)}} />
-                  </div>
-                </>
-              }
-              )
-            }
+        {placesToClean.map((product, i) => (
+          <div key={i} className="col-3 mb-3">
+            <Card product={product} />
           </div>
-        </div>
+        ))}
       </div>
     </Layout>
   );
