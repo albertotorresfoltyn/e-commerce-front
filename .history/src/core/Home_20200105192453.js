@@ -89,7 +89,7 @@ const Home = () => {
                 // console.log('state',map[product._id])
                 return <>
                   <div key={product._id} className="col-3 mb-3">
-                    <PlaceCard product={product} onClick={()=>{toggleInMap(product._id)}} isSelected={map[product._id]} />
+                    <PlaceCard product={product} onClick={()=>{debugger;toggleInMap(product._id)}} isSelected={map[product._id]} />
                   </div>
                 </>
               }
