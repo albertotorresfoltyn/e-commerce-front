@@ -86,11 +86,11 @@ const Home = () => {
           <div className="row">
             {
               placesToClean.map((product) => {
-                // console.log('state',map[product._id])
+                console.log('state',map[product._id])
                 return <>
                   {(map[product._id])?<span>{'checked'}</span>:null}
                   <div key={product._id} className="col-3 mb-3">
-                    <PlaceCard product={product} onClick={()=>{debugger;toggleInMap(product._id)}} isSelected={map[product._id]} />
+                    <PlaceCard product={product} onClick={()=>{debugger;toggleInMap(product._id)}} />
                   </div>
                 </>
               }
