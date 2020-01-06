@@ -64,6 +64,7 @@ const Home = () => {
 
   return (
     <Layout title="E-commerce Limpieza" description="Created by EPA!" className="container-fluid center">
+      <Search />
       {/*<h2 className="mb-4">New Arrivals</h2>
       <div className="row">
         {productsByArrival.map((product, i) => (
