@@ -51,6 +51,7 @@ const Home = () => {
   }
 
   const toggleInMap = (value) => {
+    debugger;
     map[value] = !map[value]; console.log('shit', map)
     setMap({ ...map });
   }

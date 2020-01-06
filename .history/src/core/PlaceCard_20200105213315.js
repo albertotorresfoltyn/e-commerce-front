@@ -7,7 +7,7 @@ import { addItem, updateItem, removeItem } from './cartHelpers'
 //import { mdiAccount } from '@mdi/js';
 import Icon from '@mdi/react';
 import * as icons from '@mdi/js';
-export default ({ product, onClick, isSelected}) => 
+export default PlaceCard = ({ product, onClick, isSelected}) => 
     <MDBCard style={{ width: "16rem", background: isSelected?'navajowhite':'white' }} cascade ecommerce narrow onClick={onClick}>
       {/*<ShowImage item={product} url="product" />*/}
       <MDBCardBody cascade className="text-center">

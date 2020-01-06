@@ -3,7 +3,7 @@ import Layout from './Layout'
 import { getProducts, getPlaces } from './apiCore'
 import Card from './Card'
 import PlaceCard from './PlaceCard'
-import { MDBBtn } from "mdbreact";
+import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBTooltip, MDBCardFooter, MDBBtn, MDBIcon } from "mdbreact";
 
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
   const [productsByArrival, setProductByArrival] = useState([])
   const [placesToClean, setPlacesToClean] = useState([])
   const [map, setMap] = useState({});
-  //const [error, setError] = useState(false);
+  const [error, setError] = useState(false);
 
   const loadProductsBySell = () => {
     getProducts('sold').then(data => {
@@ -51,6 +51,7 @@ const Home = () => {
   }
 
   const toggleInMap = (value) => {
+    debugger;
     map[value] = !map[value]; console.log('shit', map)
     setMap({ ...map });
   }
@@ -79,8 +80,7 @@ const Home = () => {
           </div>
         ))}
         </div>*/}
-      {//TODO: Make a component with the following code
-      }
+      {//TODO: Make a component with the following code}
       <div className="row">
         <div className="container mb-3">
           <h1 className="mb-4">Que necesitas limpiar?</h1>

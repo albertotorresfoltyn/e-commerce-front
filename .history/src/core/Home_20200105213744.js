@@ -3,7 +3,7 @@ import Layout from './Layout'
 import { getProducts, getPlaces } from './apiCore'
 import Card from './Card'
 import PlaceCard from './PlaceCard'
-import { MDBBtn } from "mdbreact";
+import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBTooltip, MDBCardFooter, MDBBtn, MDBIcon } from "mdbreact";
 
 
 const Home = () => {
@@ -51,6 +51,7 @@ const Home = () => {
   }
 
   const toggleInMap = (value) => {
+    debugger;
     map[value] = !map[value]; console.log('shit', map)
     setMap({ ...map });
   }
