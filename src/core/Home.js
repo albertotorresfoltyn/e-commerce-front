@@ -62,7 +62,7 @@ const Home = () => {
   }, [])
 
   return (
-    <Layout title="E-commerce Limpieza" description="Created by EPA!" className="container-fluid center">
+    <Layout title="EcoClean" description="Sabemos de limpieza" className="container-fluid center backColorLigthGray" >
       {/*<h2 className="mb-4">New Arrivals</h2>
       <div className="row">
         {productsByArrival.map((product, i) => (
@@ -81,9 +81,9 @@ const Home = () => {
         </div>*/}
       {//TODO: Make a component with the following code
       }
-      <div className="row">
-        <div className="container mb-3">
-          <h1 className="mb-4">Que necesitas limpiar?</h1>
+      <div className="row" >
+        <div className="container mb-3 mt-3 text-center">
+          <h1 className="mb-2 caps">¿Que necesitas limpiar?</h1>
           <span>Seleccione el/los lugares que quiere limpiar</span>
           <div className="row">
             {
@@ -99,7 +99,8 @@ const Home = () => {
             }
           </div>
           <div className="row reverse">
-            <MDBBtn right color="yellow">Siguiente</MDBBtn>
+       
+            <MDBBtn right color="info">Siguiente</MDBBtn>
           </div>
         </div>
       </div>
