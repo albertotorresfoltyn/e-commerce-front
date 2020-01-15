@@ -27,7 +27,7 @@ const Step2 = ({ history }) => {
   const toggleInMap = (value, category) => {
     const keys = Object.keys(map);
     debugger;
-    for (let i = 0; i < keys.length; i += 1) {
+    for (let i = 0; i < keys.length; i += 1) 
         const mapkeys = Object.keys(map[keys[i]]);
         for (let j = 0; j < mapkeys.length; j += 1) { //category
           if (mapkeys[j]===category)

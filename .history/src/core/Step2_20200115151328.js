@@ -24,15 +24,25 @@ function getInitialState() {
 }
 const Step2 = ({ history }) => {
   const [map, setMap] = useState(getInitialState(kindOfRecurrence, frequency));
+  //const [frequency, setFrequency] = useState({'fuck it': false, 'all': false});
+
   const toggleInMap = (value, category) => {
     const keys = Object.keys(map);
     debugger;
     for (let i = 0; i < keys.length; i += 1) {
+      //if (keys[i] === value) { //id 
         const mapkeys = Object.keys(map[keys[i]]);
         for (let j = 0; j < mapkeys.length; j += 1) { //category
           if (mapkeys[j]===category)
             map[keys[i]][mapkeys[j]] = (keys[i] === value) && (mapkeys[j]===category);
         }
+      /*} else {
+        //limpiar
+        const mapkeys = Object.keys(map[keys[i]]);
+        for (let j = 0; j < mapkeys.length; j += 1) {
+          map[keys[i]][mapkeys[j]] = (mapkeys[j]!==category);
+        }
+      }*/
     }
     setMap( {...map} );
   }
