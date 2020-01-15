@@ -14,14 +14,15 @@ export default ({ product, onClick, isSelected}) =>
         <MDBCardTitle tag="h3">
           {product.name}
         </MDBCardTitle>
-        <MDBCardTitle>
+        {/* <MDBCardTitle>
           <a href={`/product/${product._id}`} ><strong>{product.name}</strong></a>
-        </MDBCardTitle>
+        </MDBCardTitle> */}
         <MDBCardText>
-          {product.description && product.description.substring(0, 100)}
+          Limpia pisos, limpia grasa, lavandina...
+          {/* {product.description && product.description.substring(0, 100)} */}
         </MDBCardText>
         <Icon path={icons[product.icon]}
-        size={1}
-        color="navy"/>
+        size={2}
+        color="#33b5e5"/>
       </MDBCardBody>
     </MDBCard>

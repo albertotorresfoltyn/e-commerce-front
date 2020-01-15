@@ -101,9 +101,10 @@ const Search = () => {
                         type="search"
                         className="form-control"
                         onChange={handleChange("search")}
-                        placeholder="Busqueda por Nombre"
+                        placeholder="Necesitas un producto en especial?"
                     />
-                    <MDBBtn color="unique" rounded size="sm" type="submit" className="mr-auto">Buscar</MDBBtn>
+                   
+                    <MDBBtn gradient="aqua"  size="md" type="submit" className="mr-auto">Buscar</MDBBtn>
                 </div>
             </span>
         </form>

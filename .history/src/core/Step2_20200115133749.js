@@ -30,19 +30,18 @@ const Step2 = ({ history }) => {
     const keys = Object.keys(map);
     debugger;
     for (let i = 0; i < keys.length; i += 1) {
-      //if (keys[i] === value) { //id 
+      if (keys[i] === value) { //id 
         const mapkeys = Object.keys(map[keys[i]]);
         for (let j = 0; j < mapkeys.length; j += 1) { //category
-          if (mapkeys[j]===category)
-            map[keys[i]][mapkeys[j]] = (keys[i] === value) && (mapkeys[j]===category);
+          map[keys[i]][mapkeys[j]] = (mapkeys[j]===category);
         }
-      /*} else {
+      } else {
         //limpiar
         const mapkeys = Object.keys(map[keys[i]]);
         for (let j = 0; j < mapkeys.length; j += 1) {
-          map[keys[i]][mapkeys[j]] = (mapkeys[j]!==category);
+          map[keys[i]][mapkeys[j]] = false;
         }
-      }*/
+      }
     }
     setMap( {...map} );
   }

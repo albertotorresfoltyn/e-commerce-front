@@ -12,3 +12,26 @@ max-width: 150px;
 .reverse {
   flex-direction: row-reverse;
 }
+
+.titleClass{
+
+  font-family: "Arial", Gadget, sans-serif;
+    font-size: 5rem;
+    letter-spacing: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: small-caps;
+    font-feature-settings: normal;
+
+}
+
+.backColorLigthGray {
+  background-color: #ededed;
+
+
+}
+
+.caps {
+  font-variant: small-caps;
+}

@@ -21,7 +21,7 @@ export default ({ product, onClick, isSelected}) =>
           {product.description && product.description.substring(0, 100)}
         </MDBCardText>
         <Icon path={icons[product.icon]}
-        size={1}
-        color="navy"/>
+        size={1} 
+        color="aqua"/>
       </MDBCardBody>
     </MDBCard>

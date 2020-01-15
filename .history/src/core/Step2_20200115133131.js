@@ -30,20 +30,14 @@ const Step2 = ({ history }) => {
     const keys = Object.keys(map);
     debugger;
     for (let i = 0; i < keys.length; i += 1) {
-      //if (keys[i] === value) { //id 
-        const mapkeys = Object.keys(map[keys[i]]);
-        for (let j = 0; j < mapkeys.length; j += 1) { //category
-          if (mapkeys[j]===category)
-            map[keys[i]][mapkeys[j]] = (keys[i] === value) && (mapkeys[j]===category);
-        }
-      /*} else {
-        //limpiar
+      if (keys[i] === value) {
         const mapkeys = Object.keys(map[keys[i]]);
         for (let j = 0; j < mapkeys.length; j += 1) {
-          map[keys[i]][mapkeys[j]] = (mapkeys[j]!==category);
+          map[keys[i]][mapkeys[j]] = (mapkeys[j]===category);
         }
-      }*/
+      }
     }
+    //map[value] = !map[value]; console.log('shit', map)
     setMap( {...map} );
   }
 
@@ -77,7 +71,7 @@ const Step2 = ({ history }) => {
             frequency.values.map((period) => {
               return <>
                 <div key={period._id} className="col-3 mb-3">
-                  <PlaceCard product={period} onClick={() => { toggleInMap(period._id, 'frequency') }} isSelected={map[period._id]['frequency']} />
+                  <PlaceCard product={period} onClick={() => { toggleInMap(period._id) }} isSelected={map[period._id]} />
                 </div>
               </>
             }

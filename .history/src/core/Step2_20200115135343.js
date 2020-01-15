@@ -33,8 +33,7 @@ const Step2 = ({ history }) => {
       //if (keys[i] === value) { //id 
         const mapkeys = Object.keys(map[keys[i]]);
         for (let j = 0; j < mapkeys.length; j += 1) { //category
-          if (mapkeys[j]===category)
-            map[keys[i]][mapkeys[j]] = (keys[i] === value) && (mapkeys[j]===category);
+          map[keys[i]][mapkeys[j]] = (keys[i] === value) && (mapkeys[j]!==category);
         }
       /*} else {
         //limpiar
