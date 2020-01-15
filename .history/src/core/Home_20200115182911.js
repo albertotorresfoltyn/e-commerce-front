@@ -54,7 +54,7 @@ const Home = ({history}) => {
     //clean to avoid multiselect
     const keys = Object.keys(map);
     for (let i = 0; i<keys.length;i++) {
-      map[keys[i]]=false;
+      maps[keys[i]]=false;
     }
     //clean to avoid multiselect
     map[value] = !map[value]; //console.log('shit', map)
