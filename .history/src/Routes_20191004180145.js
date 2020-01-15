@@ -13,7 +13,6 @@ import Shop from './core/Shop'
 import Product from './core/Product'
 import Cart from './core/Cart'
 import Orders from './admin/Orders'
-import Step2 from './core/Step2'
 
 
 const Routes = () => {
@@ -22,7 +21,6 @@ const Routes = () => {
     <BrowserRouter> 
         <Switch>
             <Route path="/"      exact component={Home}/>
-            <Route path="/step2"      exact component={Step2}/>
             <Route path="/shop"exact component={Shop}/>
             <Route path="/signin"exact component={Signin}/>
             <Route path="/signup"exact component={Signup}/>

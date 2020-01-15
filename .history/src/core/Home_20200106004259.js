@@ -6,7 +6,7 @@ import PlaceCard from './PlaceCard'
 import { MDBBtn } from "mdbreact";
 
 
-const Home = ({history}) => {
+const Home = (history) => {
   const [productsBySell, setProductBySell] = useState([])
   const [productsByArrival, setProductByArrival] = useState([])
   const [placesToClean, setPlacesToClean] = useState([])
@@ -62,7 +62,7 @@ const Home = ({history}) => {
   }, [])
 
   return (
-    <Layout title="EcoClean" description="Sabemos de limpieza" className="container-fluid center backColorLigthGray" >
+    <Layout title="E-commerce Limpieza" description="Created by EPA!" className="container-fluid center">
       {/*<h2 className="mb-4">New Arrivals</h2>
       <div className="row">
         {productsByArrival.map((product, i) => (
@@ -81,9 +81,9 @@ const Home = ({history}) => {
         </div>*/}
       {//TODO: Make a component with the following code
       }
-      <div className="row" >
-        <div className="container mb-3 mt-3 text-center">
-          <h1 className="mb-2 caps">¿Que necesitas limpiar?</h1>
+      <div className="row">
+        <div className="container mb-3">
+          <h1 className="mb-4">Que necesitas limpiar?</h1>
           <span>Seleccione el/los lugares que quiere limpiar</span>
           <div className="row">
             {
@@ -99,9 +99,7 @@ const Home = ({history}) => {
             }
           </div>
           <div className="row reverse">
-            <MDBBtn right color="yellow" onClick={()=>{
-              history.push('/step2');
-            }}>Siguiente</MDBBtn>
+            <MDBBtn right color="yellow">Siguiente</MDBBtn>
           </div>
         </div>
       </div>
