@@ -100,7 +100,7 @@ const Home = ({history}) => {
           </div>
           <div className="row reverse">
             <MDBBtn right color="yellow" onClick={()=>{
-              history.push('/step2');
+              history.push('/');
             }}>Siguiente</MDBBtn>
           </div>
         </div>

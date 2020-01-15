@@ -6,7 +6,7 @@ import PlaceCard from './PlaceCard'
 import { MDBBtn } from "mdbreact";
 
 
-const Home = ({history}) => {
+const Home = (history) => {
   const [productsBySell, setProductBySell] = useState([])
   const [productsByArrival, setProductByArrival] = useState([])
   const [placesToClean, setPlacesToClean] = useState([])
@@ -99,9 +99,7 @@ const Home = ({history}) => {
             }
           </div>
           <div className="row reverse">
-            <MDBBtn right color="yellow" onClick={()=>{
-              history.push('/step2');
-            }}>Siguiente</MDBBtn>
+            <MDBBtn right color="yellow">Siguiente</MDBBtn>
           </div>
         </div>
       </div>
