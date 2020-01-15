@@ -108,7 +108,7 @@ const Step2 = ({ history }) => {
           <MDBBtn right color="yellow" onClick={() => {
             history.push('/step2');
           }}>Siguiente</MDBBtn>
-          <MDBBtn color="yellow" onClick={() => {
+          <MDBBtn left color="yellow" onClick={() => {
             history.push('/');
           }}>Volver</MDBBtn>
         </div>
