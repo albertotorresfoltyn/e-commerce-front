@@ -41,7 +41,7 @@ function getInitialState() {
   return result
 }
 const Step2 = ({ history }) => {
-  const [map, setMap] = useState(getInitialState(kindOfRecurrence, frequency, periods));
+  const [map, setMap] = useState(getInitialState(kindOfRecurrence, frequency));
   const toggleInMap = (value, category) => {
     const keys = Object.keys(map);
     debugger;
@@ -97,9 +97,7 @@ const Step2 = ({ history }) => {
           {
             periods.values.map((period) => {
               return <>
-                <div key={period._id} className="col-3 mb-3">
-                  <PlaceCard product={period} onClick={() => { toggleInMap(period._id, 'period') }} isSelected={map[period._id]['period']} />
-                </div>
+                
               </>
             })
           }

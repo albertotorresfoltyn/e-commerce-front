@@ -41,7 +41,7 @@ function getInitialState() {
   return result
 }
 const Step2 = ({ history }) => {
-  const [map, setMap] = useState(getInitialState(kindOfRecurrence, frequency, periods));
+  const [map, setMap] = useState(getInitialState(kindOfRecurrence, frequency));
   const toggleInMap = (value, category) => {
     const keys = Object.keys(map);
     debugger;

@@ -10,16 +10,14 @@ const kindOfRecurrence = {
 };
 const frequency = {
   category: 'frequency',
-  values: [
-    { _id: 'daily', name: '1 vez por dia', icon: 'mdiCalendarToday' },
+  values: [{ _id: 'daily', name: '1 vez por dia', icon: 'mdiCalendarToday' },
   { _id: 'twiceaday', name: '2 veces por dia', icon: 'mdiCalendarRange' },
   { _id: 'weekly', name: '1 vez por semana', icon: 'mdiCalendarRange' },
   { _id: 'weekly2', name: '2 veces por semana', icon: 'mdiCalendarRange' }]
 };
 const periods = {
   category: 'period',
-  values: [
-    { _id: 'weekly', name: '1 vez por semana', icon: 'mdiCalendarToday' },
+  values: [{ _id: 'weekly', name: '1 vez por semana', icon: 'mdiCalendarToday' },
   { _id: 'biweekly', name: 'cada 2 semanas', icon: 'mdiCalendarRange' },
   { _id: 'monthly', name: '1 mes', icon: 'mdiCalendarRange' },
   { _id: 'threemonths', name: '2 meses', icon: 'mdiCalendarRange' },
@@ -41,7 +39,7 @@ function getInitialState() {
   return result
 }
 const Step2 = ({ history }) => {
-  const [map, setMap] = useState(getInitialState(kindOfRecurrence, frequency, periods));
+  const [map, setMap] = useState(getInitialState(kindOfRecurrence, frequency));
   const toggleInMap = (value, category) => {
     const keys = Object.keys(map);
     debugger;

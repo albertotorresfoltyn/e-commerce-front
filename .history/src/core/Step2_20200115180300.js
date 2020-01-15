@@ -10,20 +10,18 @@ const kindOfRecurrence = {
 };
 const frequency = {
   category: 'frequency',
-  values: [
-    { _id: 'daily', name: '1 vez por dia', icon: 'mdiCalendarToday' },
+  values: [{ _id: 'daily', name: '1 vez por dia', icon: 'mdiCalendarToday' },
   { _id: 'twiceaday', name: '2 veces por dia', icon: 'mdiCalendarRange' },
   { _id: 'weekly', name: '1 vez por semana', icon: 'mdiCalendarRange' },
   { _id: 'weekly2', name: '2 veces por semana', icon: 'mdiCalendarRange' }]
 };
-const periods = {
+const period = {
   category: 'period',
-  values: [
-    { _id: 'weekly', name: '1 vez por semana', icon: 'mdiCalendarToday' },
+  values: [{ _id: 'weekly', name: '1 vez por semana', icon: 'mdiCalendarToday' },
   { _id: 'biweekly', name: 'cada 2 semanas', icon: 'mdiCalendarRange' },
   { _id: 'monthly', name: '1 mes', icon: 'mdiCalendarRange' },
   { _id: 'threemonths', name: '2 meses', icon: 'mdiCalendarRange' },
-  { _id: 'sixmonths', name: '6 meses', icon: 'mdiCalendarRange' }]
+  { _id: 'sixmonths', name: 6 meses', icon: 'mdiCalendarRange' }]
 };
 
 function getInitialState() {
@@ -41,7 +39,7 @@ function getInitialState() {
   return result
 }
 const Step2 = ({ history }) => {
-  const [map, setMap] = useState(getInitialState(kindOfRecurrence, frequency, periods));
+  const [map, setMap] = useState(getInitialState(kindOfRecurrence, frequency));
   const toggleInMap = (value, category) => {
     const keys = Object.keys(map);
     debugger;
@@ -82,26 +80,14 @@ const Step2 = ({ history }) => {
         <span>Seleccione la cantidad de veces que va a limpiar</span>
         <div className="row">
           {
-            frequency.values.map((freq) => {
+            frequency.values.map((period) => {
               return <>
-                <div key={freq._id} className="col-3 mb-3">
-                  <PlaceCard product={freq} onClick={() => { toggleInMap(freq._id, 'frequency') }} isSelected={map[freq._id]['frequency']} />
+                <div key={period._id} className="col-3 mb-3">
+                  <PlaceCard product={period} onClick={() => { toggleInMap(period._id, 'frequency') }} isSelected={map[period._id]['frequency']} />
                 </div>
               </>
             }
             )
-          }
-        </div>
-        <h1 className="mb-4">Periodo de limpieza</h1>
-        <div className="row">
-          {
-            periods.values.map((period) => {
-              return <>
-                <div key={period._id} className="col-3 mb-3">
-                  <PlaceCard product={period} onClick={() => { toggleInMap(period._id, 'period') }} isSelected={map[period._id]['period']} />
-                </div>
-              </>
-            })
           }
         </div>
         <div className="row reverse">
