@@ -21,10 +21,10 @@ const Menu = ({ history }) => (
               <MDBNavLink to="/">Home</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="/shop">Shop</MDBNavLink>
+              <MDBNavLink to="/shop">Productos</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to="/cart">Cart{" "}<sup>
+              <MDBNavLink to="/cart">Carrito{" "}<sup>
                                     <small className="cart-badge">{itemTotal()}</small>
                                 </sup></MDBNavLink>
             </MDBNavItem>
@@ -38,7 +38,7 @@ const Menu = ({ history }) => (
                         <MDBNavLink to="/admin/dashboard">Dashboard</MDBNavLink>
                         </MDBNavItem>
               )}
-            <MDBNavItem>
+            {/* <MDBNavItem>
               <MDBDropdown>
                 <MDBDropdownToggle nav caret>
                   <div className="d-none d-md-inline">Dropdown</div>
@@ -50,22 +50,22 @@ const Menu = ({ history }) => (
                   <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
-            </MDBNavItem>
+            </MDBNavItem> */}
           </MDBNavbarNav>
           <MDBNavbarNav right>
           {!isAuthenticated() && (
                 <Fragment>
                      <li className="nav-item">
-                          <Link className="nav-link" style ={isActive(history, '/signin')} to="/signin">Signin</Link>
+                          <Link className="nav-link" style ={isActive(history, '/signin')} to="/signin">Ingresar</Link>
                     </li>
             
                     <li className="nav-item">
-                        <Link className="nav-link" style={isActive(history, '/signup')} to="/signup">Signup</Link>
+                        <Link className="nav-link" style={isActive(history, '/signup')} to="/signup">Registrarte</Link>
                     </li>
                 </Fragment>
             )}
 
-            {isAuthenticated() && (
+{isAuthenticated() && (
                     <li className="nav-item">
                             <span className="nav-link" style={{cursor: "pointer", color: "#ffffff" }} onClick={() => 
                                 signout(() => {
@@ -73,7 +73,7 @@ const Menu = ({ history }) => (
                                 })
                             }
                             > 
-                                Signout
+                                Salir
                             </span>    
                
                      </li>
@@ -97,3 +97,4 @@ const Menu = ({ history }) => (
 )
 
 export default withRouter(Menu);
+
