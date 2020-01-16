@@ -4,7 +4,7 @@ import { getProducts, getPlaces } from './apiCore'
 import Card from './Card'
 import PlaceCard from './PlaceCard'
 import { MDBBtn } from "mdbreact";
-
+import BannerTop from './BannerTop'
 
 const Home = ({history}) => {
   const [productsBySell, setProductBySell] = useState([])
@@ -68,7 +68,8 @@ const Home = ({history}) => {
   }, [])
 
   return (
-    <Layout title="EcoClean" description="Sabemos de limpieza" className="container-fluid center backColorLigthGray" >
+    <Layout className="container-fluid center backColorLigthGray" >
+       <BannerTop title="EcoClean" description="Sabemos de limpieza" />
       {/*<h2 className="mb-4">New Arrivals</h2>
       <div className="row">
         {productsByArrival.map((product, i) => (
