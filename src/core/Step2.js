@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import SimpleCard from "./SimpleCard";
 import PlaceCard from "./PlaceCard";
 import {
   MDBContainer,
@@ -16,10 +17,11 @@ import Layout from "./Layout";
 const kindOfRecurrence = {
   category: "kindOfRecurrence",
   values: [
-    { _id: "fuck it", name: "Unico", icon: "mdiCalendarToday" },
-    { _id: "all", name: "Fijo(recurrente)", icon: "mdiCalendarRange" }
+    { _id: "fuck it", name: "Unico", icon: "mdiCalendarToday", description: "Se efectúa una vez"},
+    { _id: "all", name: "Recurrente", icon: "mdiCalendarRange", description: "Se repite con la frecuencia que determina el usuario" }
   ]
 };
+
 const frequency = {
   category: "frequency",
   values: [
@@ -167,7 +169,7 @@ const Step2 = ({ history }) => {
                             return (
                               
                                 <div key={product._id} className="col-3 mb-3">
-                                  <PlaceCard
+                                  <SimpleCard
                                     product={product}
                                     onClick={() => {
                                       toggleInMap(
