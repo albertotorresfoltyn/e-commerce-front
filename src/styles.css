@@ -39,3 +39,8 @@ max-width: 150px;
 .deep-celeste{
   background-color: lightseagreen
 }
+
+.hrWhite {
+  border-top: 5px solid rgba(255, 255, 255, 0);
+  background-color: white;
+}

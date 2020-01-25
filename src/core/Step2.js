@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SimpleCard from "./SimpleCard";
 import PlaceCard from "./PlaceCard";
+import InputNumber from "./InputNumber";
 import {
   MDBContainer,
   MDBRow,
@@ -17,18 +18,26 @@ import Layout from "./Layout";
 const kindOfRecurrence = {
   category: "kindOfRecurrence",
   values: [
-    { _id: "fuck it", name: "Unico", icon: "mdiCalendarToday", description: "Se efectúa una vez"},
-    { _id: "all", name: "Recurrente", icon: "mdiCalendarRange", description: "Se repite con la frecuencia que determina el usuario" }
+    {
+      _id: "fuck it",
+      name: "Unico",
+      icon: "mdiCalendarToday",
+      description: "Se efectúa una vez"
+    },
+    {
+      _id: "all",
+      name: "Recurrente",
+      icon: "mdiCalendarRange",
+      description: "Pedido que se repite "
+    }
   ]
 };
 
 const frequency = {
   category: "frequency",
   values: [
-    { _id: "daily", name: "1 vez por dia", icon: "mdiCalendarToday" },
-    { _id: "twiceaday", name: "2 veces por dia", icon: "mdiCalendarRange" },
-    { _id: "weekly", name: "1 vez por semana", icon: "mdiCalendarRange" },
-    { _id: "weekly2", name: "2 veces por semana", icon: "mdiCalendarRange" }
+    { _id: "daily", name: "Semanal", icon: "mdiCalendarToday" },
+    { _id: "twiceaday", name: "Mensual", icon: "mdiCalendarRange" }
   ]
 };
 const periods = {
@@ -119,17 +128,17 @@ const Step2 = ({ history }) => {
     >
       <MDBContainer>
         <MDBRow>
-          <MDBCol  lg="12" >
+          <MDBCol lg="12">
             <MDBCard>
               <MDBCardBody>
-                <h2 className="text-center font-weight-bold pt-4 pb-5">
+                <h2 className="text-center font-weight-bold pt-4 pb-4 btn-blue mb-5"  >
                   <strong>Registración de un pedido </strong>
                 </h2>
                 <MDBStepper form>
                   <MDBStep form>
                     {/* <a href="#formstep1" onClick={this.swapFormActive(1)(1)}> */}
                     <a href="#formstep1">
-                      <MDBBtn color="indigo" circle>
+                      <MDBBtn color="blue" circle>
                         1
                       </MDBBtn>
                     </a>
@@ -142,6 +151,7 @@ const Step2 = ({ history }) => {
                         2
                       </MDBBtn>
                     </a>
+
                     <p>Paso 2</p>
                   </MDBStep>
                   <MDBStep form>
@@ -156,18 +166,19 @@ const Step2 = ({ history }) => {
                 </MDBStepper>
 
                 <form action="" method="post">
-                  <MDBRow>
+                  <MDBRow className="mt-5" style={{ background: "#f9f9f9"}}>
                     {state.formActivePanel1 === 1 && (
-                      <MDBCol md="12">
-                        <h3 className="font-weight-bold pl-0 my-4">
-                          <strong>Paso 1</strong>
-                        </h3>
-                     
-                        <span>Seleccione el tipo de pedido</span>
-                        <div className="row">
-                          {kindOfRecurrence.values.map(product => {
-                            return (
-                              
+                      <MDBCol md="12" className="text-center">
+                        <div class=" mb-3 mt-5">
+                          <h4>
+                            <strong>TIPO PEDIDO</strong>
+                          </h4>
+                          <h5 className="">Seleccione el tipo de pedido</h5>
+                          <div className="row">
+                            <div className="col-3 mb-3"></div>
+
+                            {kindOfRecurrence.values.map(product => {
+                              return (
                                 <div key={product._id} className="col-3 mb-3">
                                   <SimpleCard
                                     product={product}
@@ -182,20 +193,26 @@ const Step2 = ({ history }) => {
                                     }
                                   />
                                 </div>
-                              
-                            );
-                          })}
+                              );
+                            })}
+                          </div>
                         </div>
-                        <h1 className="mb-4">Frecuencia de limpieza</h1>
-                        <span>
-                          Seleccione la cantidad de veces que va a limpiar
-                        </span>
-                        <div className="row">
-                          {frequency.values.map(freq => {
-                            return (
-                           
+
+                        <hr className="hrWhite"></hr>
+
+                        <div class=" mb-3">
+                          <h4>
+                            <strong>CATEGORÍA</strong>
+                          </h4>
+                          <h5 className="">
+                            Seleccione como quiere categorizar el pedido Recurrente
+                          </h5>
+                          <div className="row">
+                            <div className="col-3 mb-3"></div>
+                            {frequency.values.map(freq => {
+                              return (
                                 <div key={freq._id} className="col-3 mb-3">
-                                  <PlaceCard
+                                  <SimpleCard
                                     product={freq}
                                     onClick={() => {
                                       toggleInMap(freq._id, "frequency");
@@ -203,32 +220,44 @@ const Step2 = ({ history }) => {
                                     isSelected={map[freq._id]["frequency"]}
                                   />
                                 </div>
-                              
-                            );
-                          })}
+                              );
+                            })}
+                          </div>
                         </div>
-                        <h1 className="mb-4">Periodo de limpieza</h1>
-                        <div className="row">
-                          {periods.values.map(period => {
-                            return (
-                             
-                                <div key={period._id} className="col-3 mb-3">
-                                  <PlaceCard
-                                    product={period}
+                        <hr className="hrWhite"></hr>
+                        <div class=" mb-3">
+                          <h4>
+                            <strong>FRECUENCIA</strong>
+                          </h4>
+                          <h5 className="">
+                            Cada cuentas semanas quiere recibir el pedido{" "}
+                          </h5>
+                          <div className="row">
+                            <div className="offset-5 mt-3 mb-3">
+                            <InputNumber></InputNumber>
+                            </div>
+
+                       
+
+                            {/* {frequency.values.map(freq => {
+                              return (
+                                <div key={freq._id} className="col-3 mb-3">
+                                  <SimpleCard
+                                    product={freq}
                                     onClick={() => {
-                                      toggleInMap(period._id, "period");
+                                      toggleInMap(freq._id, "frequency");
                                     }}
-                                    isSelected={map[period._id]["period"]}
+                                    isSelected={map[freq._id]["frequency"]}
                                   />
                                 </div>
-                       
-                            );
-                          })}
+                              );
+                            })} */}
+                          </div>
                         </div>
-                        <div className="row reverse">
+                        <div className="">
                           <MDBBtn
                             right
-                            color="yellow"
+                            color="blue"
                             onClick={() => {
                               history.push("/step2");
                             }}
@@ -236,7 +265,7 @@ const Step2 = ({ history }) => {
                             Siguiente
                           </MDBBtn>
                           <MDBBtn
-                            color="yellow"
+                            color="blue"
                             onClick={() => {
                               history.push("/");
                             }}
@@ -244,10 +273,6 @@ const Step2 = ({ history }) => {
                             Volver
                           </MDBBtn>
                         </div>
-
-                        <MDBBtn color="indigo" rounded className="float-right">
-                          next
-                        </MDBBtn>
                       </MDBCol>
                     )}
                     {state.formActivePanel1 === 2 && (
@@ -256,10 +281,10 @@ const Step2 = ({ history }) => {
                           <strong>Paso 2</strong>
                         </h3>
 
-                        <MDBBtn color="indigo" rounded className="float-left">
+                        <MDBBtn color="blue" rounded className="float-left">
                           previous
                         </MDBBtn>
-                        <MDBBtn color="indigo" rounded className="float-right">
+                        <MDBBtn color="blue" rounded className="float-right">
                           next
                         </MDBBtn>
                       </MDBCol>
