@@ -5,6 +5,7 @@ import { getCategories, getFilteredProducts } from './apiCore'
 import Checkbox from './Checkbox'
 import RadioBox from './RadioBox'
 import { prices } from "./fixedPrices"
+import BannerStandar from './BannerStandar'
 
 const Shop = () => {
 
@@ -106,11 +107,15 @@ const Shop = () => {
         
             title="Shop Page" 
             description="Busqueda de Productos" 
-            className="container-fluid" 
+            className=""
         
         >
+            <BannerStandar title="EcoClean" description="Sabemos de limpieza" ></BannerStandar>
+
+            <div className="container-fluid">
+
             <div className="row">
-                <div className="col-4">
+                <div className="col-3">
             
                     <h4>Filtrar por Categoria</h4>
                         
@@ -119,18 +124,18 @@ const Shop = () => {
                                 handleFilters(filters, 'category')} />
                         </ul>
 
-                        <h4>Filtrar por Precio</h4>
+                        {/* <h4>Filtrar por Precio</h4>
                         <div>
                             <RadioBox prices={prices} handleFilters={filters => 
                                 handleFilters(filters, 'price')} />
-                        </div>
+                        </div> */}
                 </div>
             
-                <div className="col-8">
-                    <h2 className="mb-4">Productos</h2>
+                <div className="col-9">
+                    
                      <div className="row">
                         {filteredResults.map((product, i) => (   
-                            <div key= {i} className="col-4 mb-3">
+                            <div key= {i} className="col-3 mb-3">
                                 <Card  product={product} />
                             </div>
                         ))}
@@ -139,6 +144,12 @@ const Shop = () => {
                     {loadMoreButton()}
                 </div>
             </div>    
+
+            </div>
+
+            
+            
+           
         </Layout>
     );
 };

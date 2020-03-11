@@ -9,12 +9,13 @@ const ShowImage = ({ item, url }) => (
             top
             src={`${API}/${url}/photo/${item._id}`}
             overlay='white-slight'
-            hover
-            waves
+         
             alt={item.name}
             className="m-auto maxWidth150"
             
           />
+
+        
 );
 
 export default ShowImage;

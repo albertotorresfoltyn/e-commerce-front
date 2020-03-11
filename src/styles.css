@@ -44,3 +44,15 @@ max-width: 150px;
   border-top: 5px solid rgba(255, 255, 255, 0);
   background-color: white;
 }
+
+.jumboHead {
+ padding: 15px !important;
+ background-color: #3e4551 !important;
+}
+.card {
+  min-height: 350px;
+    max-height: 350px;
+}
+.card > .view{
+ height: 150px;
+}

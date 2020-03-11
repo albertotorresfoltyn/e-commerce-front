@@ -102,7 +102,7 @@
         }
 
      return (
-        <MDBCard className="m-2" style={{ width: "22rem" }} cascade ecommerce narrow>
+        <MDBCard className="m-2"  cascade ecommerce narrow>
              <ShowImage item={product} url="product"/>
         <MDBCardBody cascade className="text-center">
           <MDBCardTitle tag="h5">
