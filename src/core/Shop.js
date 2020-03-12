@@ -112,7 +112,7 @@ const Shop = () => {
         >
             <BannerStandar title="EcoClean" description="Sabemos de limpieza" ></BannerStandar>
 
-            <div className="container-fluid">
+            <div className="container-fluid" id="ShopContainer">
 
             <div className="row">
                 <div className="col-3">
