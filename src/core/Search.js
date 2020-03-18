@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 //import Layout from "./Layout"
 import { getCategories, list } from "./apiCore"
+import { Link, Redirect } from 'react-router-dom';
 import Card from "./Card"
 import { MDBBtn } from "mdbreact";
 
-const Search = () => {
+const Search = ({ history }) => {
 
     const [data, setData] = useState({
         categories: [],
@@ -31,6 +32,13 @@ const Search = () => {
     useEffect(() => {
         loadCategories()
     }, [])
+
+    const shouldRedirect = redirect => {
+     console.log(history);
+        debugger
+            return <Redirect to="/shop" />
+     
+    }
 
 
     const searchData = () => {
@@ -84,7 +92,7 @@ const Search = () => {
 
     //search bar populate
     const searchForm = () => (
-        <form onSubmit={searchSubmit}>
+      //  <form onSubmit={searchSubmit}>
             <span className="input-group-text">
                 <div className="input-group input-group-lg">
                     <div className="input-group-prepend">
@@ -105,9 +113,20 @@ const Search = () => {
                     />
                    
                     <MDBBtn gradient="aqua"  size="md" type="submit" className="mr-auto">Buscar</MDBBtn>
+
+
+                     {/* Trate de usar el Redirect, y despues trate de usar el history y no me andan ninguno de los dos */}
+                    <MDBBtn gradient="aqua"  size="md" type="button" className="mr-auto" onClick={shouldRedirect}>No funciona</MDBBtn>
+                   
+                   
+                    {/* Como puedo hacer de llevar esto a una funcion? */}
+                    <a href={`/shop/${search}`} ><strong>FUNCIONA</strong></a> 
+                   
+                 
+            
                 </div>
             </span>
-        </form>
+       // </form>
     )
 
     return (
