@@ -23,7 +23,7 @@ const Shop = props => {
   const [filteredResults, setFilteredResults] = useState([]);
 
   const init = () => {
-    setFilter(props.match.params.searchtext.split(" "));
+    props.match.params.searchtext && setFilter(props.match.params.searchtext.split(" "));
   };
 
   const loadFilteredResults = newFilters => {

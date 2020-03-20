@@ -9,12 +9,11 @@ const Signin = () => {
     
     const [values, setValues] = useState({
         //our state that will change with the input values, this should be updated
-        email:'pablo@testmail.com',
-        password:'jjjj1234',
+        email:'your@mail.com',
+        password:'password',
         error:'',
         loading: false,
         redirectToReferrer: false, 
-         
     });
 
     const {email, password, loading, error, redirectToReferrer} = values;
@@ -46,12 +45,12 @@ const Signin = () => {
         <form>
             <div className="form-group">
                 <label className="text-muted">Email</label>
-                <input onChange={handleChange('email')} type="email" className="form-control" value={email}/>
+                <input onChange={handleChange('email')} type="email" className="form-control" placeholder={email}/>
             </div>
             
             <div className="form-group">
                 <label className="text-muted">Password</label>
-                <input onChange={handleChange('password')} type="password" className="form-control" value={password}/>
+                <input onChange={handleChange('password')} type="password" className="form-control" placeholder={password}/>
             </div>
 
             <button onClick={clickSubmit} className="btn btn-primary">Submit</button>
