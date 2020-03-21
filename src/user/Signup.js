@@ -2,6 +2,21 @@ import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import Layout from "../core/Layout";
 import { signup } from '../auth';
+import {
+    MDBContainer,
+    MDBRow,
+    MDBCol,
+    MDBCard,
+    MDBCardBody,
+    MDBIcon,
+    MDBCardHeader,
+    MDBBtn,
+    MDBInput
+  } from "mdbreact";
+  import Background from '../resources/empresa.jpg';
+  var sectionStyle = {
+    backgroundImage: `url(${Background})`
+  };
 
 const Signup = () => {
     
@@ -45,26 +60,77 @@ const Signup = () => {
     }
 
     const signUpForm = () => (
-        <form>
-            <div className="form-group">
-                <label className="text-muted">Name</label>
-                <input onChange={handleChange('name')} type="text" className="form-control" value={name}/>
-            </div>
-            
-            <div className="form-group">
-                <label className="text-muted">Email</label>
-                <input onChange={handleChange('email')} type="email" className="form-control" value={email}/>
-            </div>
-            
-            <div className="form-group">
-                <label className="text-muted">Password</label>
-                <input onChange={handleChange('password')} type="password" className="form-control" value={password}/>
-            </div>
 
-            <button onClick={clickSubmit} className="btn btn-primary">Submit</button>
-            
 
-        </form>
+<div className="m-auto" style={sectionStyle}>
+<MDBContainer >
+      <MDBRow>
+        <MDBCol md="6" className="m-auto ">
+          <MDBCard className="mb-5 mt-5">
+            <MDBCardBody>
+              <MDBCardHeader className="form-header deep-blue-gradient rounded">
+                <h3 className="my-3">
+                  <MDBIcon icon="lock" /> Registro de usuario
+                </h3>
+              </MDBCardHeader>
+              <form>
+                <div className="grey-text">
+                <MDBInput
+                    label="Nombre completo"
+                    icon="user"
+                    group
+                    type="email"
+                    validate
+                    error="wrong"
+                    success="right"
+                    onChange={handleChange('name')}
+                    value={name}
+                  />
+                  <MDBInput
+                    label="Correo"
+                    icon="envelope"
+                    group
+                    type="email"
+                    validate
+                    error="wrong"
+                    success="right"
+                    onChange={handleChange('email')}
+                    value={email}
+                  />
+                  <MDBInput
+                    label="Contraseña"
+                    icon="lock"
+                    group
+                    type="password"
+                    validate
+                    onChange={handleChange('password')}
+                  />
+                </div>
+
+              <div className="text-center mt-4">
+                <MDBBtn
+                  color="light-blue"
+                  className="mb-3"
+                  type="submit"
+                  onClick={clickSubmit}
+                  value={password}
+                >
+                  Registrarse
+                </MDBBtn>
+              </div>
+              </form>
+              <hr></hr>
+              <div className="font-weight-light text-center">
+                  <p>Ya contás con un usuario?  <Link className=""  to="/signin">Ingresar</Link></p>  
+                </div>
+        
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
+    </div>
+
     );
 
     const showError = () => (
@@ -80,7 +146,7 @@ const Signup = () => {
     )
 
     return(
-        <Layout title="Signup" description="Signup to Ecommerce" className="container col-md-8 offset-md-2">
+        <Layout title="Signup" description="Signup to Ecommerce" className="">
             { showSuccess() }
             { showError() }
             { signUpForm() }

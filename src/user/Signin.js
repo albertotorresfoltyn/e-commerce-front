@@ -82,6 +82,7 @@ const Signin = () => {
                     error="wrong"
                     success="right"
                     onChange={handleChange('email')}
+                    value={email}
                   />
                   <MDBInput
                     label="Contraseña"
@@ -90,6 +91,7 @@ const Signin = () => {
                     type="password"
                     validate
                     onChange={handleChange('password')}
+                    value={password}
                   />
                 </div>
 
@@ -117,21 +119,7 @@ const Signin = () => {
     </MDBContainer>
     </div>
 
-        // <form>
-        //     <div className="form-group">
-        //         <label className="text-muted">Email</label>
-        //         <input onChange={handleChange('email')} type="email" className="form-control" placeholder={email}/>
-        //     </div>
-            
-        //     <div className="form-group">
-        //         <label className="text-muted">Password</label>
-        //         <input onChange={handleChange('password')} type="password" className="form-control" placeholder={password}/>
-        //     </div>
-
-        //     <button onClick={clickSubmit} className="btn btn-primary">Submit</button>
-            
-
-        // </form>
+      
     );
 
     const showError = () => (
