@@ -10,6 +10,9 @@ const AddProduct = () => {
     const [values, setValues] = useState({
         name:'',
         description:'',
+        descriptionLg:'',
+        wayUse:'',
+        tags:[],
         price:'',
         categories: [],
         shipping:'',
@@ -24,7 +27,7 @@ const AddProduct = () => {
 
     const { user, token } = isAuthenticated();
     const {
-        name, description, price, categories, category, shipping, quantity,
+        name, description, descriptionLg, wayUse, tags ,price, categories, category, shipping, quantity,
                      loading, error, createdProduct, redirectToProfile, formData} = values
                      
     //load categories and set form data
@@ -42,19 +45,55 @@ const AddProduct = () => {
     useEffect(() => {
         init();
     }, []);
-
     
     const handleChange = name => event => {
-        const value = name === 'photo' ? event.target.files[0] : event.target.value
-        formData.set(name, value)
+        var value = (name === 'photo' )? event.target.files[0] : event.target.value;
+        if (name == 'tags' )  value = value.split(" ");
+
+       
+        formData  && formData.set(name, value);
         setValues({...values, [name]: value})
+        // if (name === 'photos'){
+        //     console.log(event.target.files[0]);
+        //     console.log(JSON.stringify(event.target.files[0]));
+        //     console.log(value);
+        //     debugger
+
+        //     var reader = new FileReader();
+        // var file =event.target.files[0];
+    
+        // reader.onload = function(upload) {
+        //     var fileData = {
+        //         file: {
+        //         // name: upload.target.name,
+        //         // size: upload.target.size,
+        //         // type: upload.target.type,
+        //         type : upload.target.result.split(",")[0],
+        //         data: upload.target.result.split(",")[1]
+        //         }
+        //     }
+        //     var arra = [fileData,fileData,fileData];
+        //     formData  && formData.set('photos', JSON.stringify(arra));
+        // };
+    
+        // reader.readAsDataURL(file);
+
+        
+
+
+            
+      
     };
 
     const clickSubmit = event => {
         event.preventDefault()
         setValues({...values, error: '', loading: true})
+     
+        formData  && formData.set('tags', JSON.stringify(formData.get('tags').split(",")));
+       
 
         createProduct(user._id, token, formData).then (data => {
+            debugger 
             if (data.error) {
                 setValues({ ...values, error: data.error });
             } else {
@@ -62,6 +101,9 @@ const AddProduct = () => {
                     ...values,
                     name: "",
                     description: "",
+                    descriptionLg:"",
+                    wayUse:"",
+                    tags:[],
                     photo: "",
                     price:"",
                     quantity:"",
@@ -75,7 +117,7 @@ const AddProduct = () => {
     const newPostForm = () => (<>
 
         {<form onSubmit={clickSubmit}>
-            <h4>Post Photo</h4>
+            <h4>Imágenes</h4>
             <div >
                 <div className="input-group">
                     <div className="input-group-prepend">
@@ -99,6 +141,7 @@ const AddProduct = () => {
                     </div>
                 </div>
             </div>
+           
             <div  className="form-group">
             <label htmlFor="formGroupExampleInput">Name</label>
                 <input className="form-control" onChange={handleChange("name")} type="text"  value={name} />
@@ -107,15 +150,27 @@ const AddProduct = () => {
                 <label >Description</label>
                 <textarea className="form-control" rows="3" onChange={handleChange("description")}  value={description} />
             </div>
+            <div className="form-group">
+                <label >Description Larga</label>
+                <textarea className="form-control" rows="3" onChange={handleChange("descriptionLg")}  value={descriptionLg} />
+            </div>
+            <div className="form-group">
+                <label >Forma de Utilización</label>
+                <textarea className="form-control" rows="3" onChange={handleChange("wayUse")}  value={wayUse} />
+            </div>
+            <div className="form-group">
+                <label >Tags Relacionados</label>
+                <textarea className="form-control" rows="3" onChange={handleChange("tags")}  value={tags} />
+            </div>
             <div  className="form-group">
-                <label >Price</label>
+                <label >Precio</label>
                 <input className="form-control" onChange={handleChange("price")} type="number"  value={price} />
             </div>
             <div  className="form-group">
-                <label >Category</label> 
+                <label >Categoría</label> 
                 <select className="browser-default custom-select" onChange={handleChange("category")}>
                     <option disabled selected>Please Select..</option> 
-                    {categories && categories.map((c, i) => {debugger; return(
+                    {categories && categories.map((c, i) => {return(
                         <option key={i} value={c._id}>
                             {c.name}
                         </option>
@@ -131,10 +186,10 @@ const AddProduct = () => {
                 </select>    
             </div>
             <div >
-                <label >Quantity</label>
+                <label >Cantidad</label>
                 <input className="form-control" onChange={handleChange("quantity")} type="number"  value={quantity} />
             </div>
-            <button className="btn btn-outline-primary">Create Product</button>
+            <button className="btn btn-outline-primary">Crear Producto</button>
         </form>}
         </>
     );

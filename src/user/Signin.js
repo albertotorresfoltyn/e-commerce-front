@@ -14,8 +14,6 @@ import {
     MDBInput,
     MDBCardImage
   } from "mdbreact";
-  import Background from '../resources/empresa.jpg';
-
 
   var sectionStyle = {
    backgroundColor:"beige"

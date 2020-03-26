@@ -65,7 +65,7 @@ const Menu = ({ history }) => (
                
                 to="/signin"
               >
-                Igresar
+                Ingresar
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem   className={isActive(history, "/signup")}>

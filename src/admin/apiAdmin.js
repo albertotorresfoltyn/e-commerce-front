@@ -20,6 +20,8 @@ export const createCategory = (userId, token, category) => {
 };
 
 export const createProduct = (userId, token, product) => {
+    console.log("SE MANDA A API");
+    console.log(product);
     return fetch(`${API}/product/create/${userId}`, {
         method: "POST",
         headers: {
