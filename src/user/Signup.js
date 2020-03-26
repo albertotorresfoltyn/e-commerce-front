@@ -11,12 +11,14 @@ import {
     MDBIcon,
     MDBCardHeader,
     MDBBtn,
-    MDBInput
+    MDBInput,
+    MDBCardImage
   } from "mdbreact";
   import Background from '../resources/empresa.jpg';
+
   var sectionStyle = {
-    backgroundImage: `url(${Background})`
-  };
+    backgroundColor:"beige"
+   };
 
 const Signup = () => {
     
@@ -67,12 +69,16 @@ const Signup = () => {
       <MDBRow>
         <MDBCol md="6" className="m-auto ">
           <MDBCard className="mb-5 mt-5">
-            <MDBCardBody>
-              <MDBCardHeader className="form-header deep-blue-gradient rounded">
-                <h3 className="my-3">
-                  <MDBIcon icon="lock" /> Registro de usuario
+          <MDBCardImage
+            className='blue-gradient white-text d-flex justify-content-center align-items-center flex-column p-4 '
+            tag='div'
+          >
+        <h3 className="my-3">
+                  <MDBIcon icon="lock" /> Registración
                 </h3>
-              </MDBCardHeader>
+          </MDBCardImage>
+            <MDBCardBody>
+          
               <form>
                 <div className="grey-text">
                 <MDBInput
@@ -109,7 +115,7 @@ const Signup = () => {
 
               <div className="text-center mt-4">
                 <MDBBtn
-                  color="light-blue"
+                  color="primary"
                   className="mb-3"
                   type="submit"
                   onClick={clickSubmit}
