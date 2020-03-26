@@ -99,7 +99,7 @@ const Shop = props => {
   return (
     <Layout title="Shop Page" description="Busqueda de Productos" className="">
       <BannerStandar
-        title="EcoClean"
+        title="Clean Easy"
         description="Sabemos de limpieza"
       ></BannerStandar>
 

@@ -120,7 +120,7 @@ const Step2 = ({ history }) => {
 
   return (
     <Layout
-      title="EcoClean"
+      title="Clean Easy"
       description="Sabemos de limpieza"
       className="container-fluid center backColorLigthGray"
     >

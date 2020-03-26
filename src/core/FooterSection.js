@@ -36,7 +36,7 @@ const FooterSection = () => {
         <MDBRow className="mt-3">
           <MDBCol md="3" lg="4" xl="3" className="mb-4">
             <h6 className="text-uppercase font-weight-bold">
-              <strong>EcoClean</strong>
+              <strong>Clean Easy</strong>
             </h6>
             <hr className="deep-celeste accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
             <p>

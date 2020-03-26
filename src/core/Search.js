@@ -112,15 +112,10 @@ const Search = ({ history }) => {
                         placeholder="Necesitas un producto en especial?"
                     />
                    
-                    <MDBBtn gradient="aqua"  size="md" type="submit" className="mr-auto">Buscar</MDBBtn>
+                    <MDBBtn  color="primary" size="md" type="submit"  href={`/shop/${search}`}  className="mr-auto">Buscar</MDBBtn>
 
-
-                     {/* Trate de usar el Redirect, y despues trate de usar el history y no me andan ninguno de los dos */}
-                    <MDBBtn gradient="aqua"  size="md" type="button" className="mr-auto" onClick={shouldRedirect}>No funciona</MDBBtn>
-                   
-                   
-                    {/* Como puedo hacer de llevar esto a una funcion? */}
-                    <a href={`/shop/${search}`} ><strong>FUNCIONA</strong></a> 
+                    {/* <MDBBtn   size="md" type="button" className="mr-auto" onClick={shouldRedirect}>No funciona</MDBBtn>
+                    <a href={`/shop/${search}`} ><strong>FUNCIONA</strong></a>  */}
                    
                  
             
