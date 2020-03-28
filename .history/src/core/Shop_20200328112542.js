@@ -23,6 +23,7 @@ const Shop = props => {
   const [filteredResults, setFilteredResults] = useState([]);
 
   const init = () => {
+ 
     props.match.params.searchtext && setFilter(props.match.params.searchtext.split(" "));
   };
 
@@ -63,15 +64,6 @@ const Shop = props => {
         </button>
       )
     );
-  };
-
-  const reloadCall = (param) => {
-    
-    var indexDelete = filter.findIndex(item => item === param);
-    filter.splice(indexDelete, 1);  
-    var filtrosUpdated = filter.join(" ");
-    window.location.href =  "http://localhost:3000/shop/" + filtrosUpdated;
-
   };
 
   //populates the categories on the sidebar
@@ -125,7 +117,6 @@ const Shop = props => {
                       key={tag}
                       color="primary"
                       className="rounded-0"
-                      onClick={ ()=>{reloadCall(tag)}}
                     >
                       {tag}
                     </MDBChip>

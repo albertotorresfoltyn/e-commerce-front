@@ -9,19 +9,18 @@ const Cart = () => {
     const [items, setItems] = useState([])
     //console.log(items, setItems);
     useEffect(() => {
-        const itstr = JSON.stringify(items);
-        const cartStr = JSON.stringify(getCart())
-        (itstr !== cartStr) && setItems(getCart());
+        //console.log('using setitems', getCart());
+        setItems(getCart())
     }, [items])
 
     const showItems = items => {
         return (
             <div>
-                <h2>Tu carrito tiene {`${items.length}`} items </h2>
+                <h2>Your cart has {`${items.length}`} items </h2>
                 <hr/>
                 {items.map((product, i) => (
                     <Card 
-                        key={i}
+                        key={i} 
                         product={product} 
                         showAddToCartButton={false} 
                         cartUpdate={true}

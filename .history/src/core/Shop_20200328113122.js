@@ -65,15 +65,6 @@ const Shop = props => {
     );
   };
 
-  const reloadCall = (param) => {
-    
-    var indexDelete = filter.findIndex(item => item === param);
-    filter.splice(indexDelete, 1);  
-    var filtrosUpdated = filter.join(" ");
-    window.location.href =  "http://localhost:3000/shop/" + filtrosUpdated;
-
-  };
-
   //populates the categories on the sidebar
   useEffect(() => {
     init();
@@ -125,7 +116,6 @@ const Shop = props => {
                       key={tag}
                       color="primary"
                       className="rounded-0"
-                      onClick={ ()=>{reloadCall(tag)}}
                     >
                       {tag}
                     </MDBChip>
