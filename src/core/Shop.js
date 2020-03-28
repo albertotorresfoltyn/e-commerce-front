@@ -23,12 +23,14 @@ const Shop = props => {
   const [filteredResults, setFilteredResults] = useState([]);
 
   const init = () => {
+    debugger
     props.match.params.searchtext && setFilter(props.match.params.searchtext.split(" "));
   };
 
   const loadFilteredResults = newFilters => {
+    debugger
     //console.log(newFilters);
-    getFilteredProducts(skip, limit, newFilters).then(data => {
+    getFilteredProducts(skip, limit, props.match.params.searchtext).then(data => {
       if (data.error) {
         setError(data.error);
       } else {
