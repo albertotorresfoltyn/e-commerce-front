@@ -25,8 +25,8 @@ const Signin = () => {
     
     const [values, setValues] = useState({
         //our state that will change with the input values, this should be updated
-        email:'your@mail.com',
-        password:'password',
+        email:'',
+        password:'',
         error:'',
         loading: false,
         redirectToReferrer: false, 

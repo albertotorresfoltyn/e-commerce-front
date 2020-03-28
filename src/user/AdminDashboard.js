@@ -15,15 +15,15 @@ const AdminDashboard = () => {
                       <h4 className="card-header">Admin links</h4>
                       <ul className="list-group">
                           <li className="list-group-item">
-                              <Link className="nav-link" to="/create/category">Create Category</Link>
+                              <Link className="nav-link" to="/create/category">Agregar Categoria</Link>
                           </li>
 
                           <li className="list-group-item">
-                              <Link className="nav-link" to="/create/product">Create Products</Link>  
+                              <Link className="nav-link" to="/create/product">Agregar Productos</Link>  
                           </li> 
 
                            <li className="list-group-item">
-                              <Link className="nav-link" to="admin/orders">View Orders</Link>  
+                              <Link className="nav-link" to="admin/orders">Ver Ordenes</Link>  
                           </li>   
                       
                       </ul>
@@ -36,7 +36,7 @@ const AdminDashboard = () => {
     const adminInfo = () => {
         return (
             <div className="card mb-5">
-            <h3 className="card-header">User Information</h3>
+            <h3 className="card-header">Información de Usuario</h3>
             <ul className="list-group">
                 <li className="list-group-item">{name}</li>
                 <li className="list-group-item">{email}</li>
