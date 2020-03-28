@@ -23,6 +23,7 @@ const Shop = props => {
   const [filteredResults, setFilteredResults] = useState([]);
 
   const init = () => {
+ 
     props.match.params.searchtext && setFilter(props.match.params.searchtext.split(" "));
   };
 

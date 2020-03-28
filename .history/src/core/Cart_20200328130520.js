@@ -9,8 +9,10 @@ const Cart = () => {
     const [items, setItems] = useState([])
     //console.log(items, setItems);
     useEffect(() => {
+        //console.log('using setitems', getCart());
         const itstr = JSON.stringify(items);
-        const cartStr = JSON.stringify(getCart())
+        const cartStr = JSON.stringify(getCart());
+        debugger;
         (itstr !== cartStr) && setItems(getCart());
     }, [items])
 
