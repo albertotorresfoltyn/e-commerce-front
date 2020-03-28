@@ -58,6 +58,19 @@ const Menu = ({ history }) => (
         )}
       </MDBNavbarNav>
       <MDBNavbarNav right>
+      {isAuthenticated() && (
+                    <li className="nav-item">
+                            <span className="nav-link" style={{cursor: "pointer", color: "#ffffff" }} onClick={() => 
+                                signout(() => {
+                                history.push("/"); //take the user to homepage after signout
+                                })
+                            }
+                            > 
+                                Salir
+                            </span>    
+               
+                     </li>
+            )}
         {!isAuthenticated() && (
           <Fragment>
             <MDBNavItem  className={isActive(history, "/signin")}>
