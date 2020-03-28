@@ -36,7 +36,7 @@ const Dashboard = () => {
             <ul className="list-group">
                 <li className="list-group-item">{name}</li>
                 <li className="list-group-item">{email}</li>
-                <li className="list-group-item">{role === 1 ? "Admin": "Registered User"} </li>
+                <li className="list-group-item">{role === 1 ? "Admin": "Usuario registrado"} </li>
             </ul>
         </div> 
         );
@@ -54,7 +54,7 @@ const Dashboard = () => {
     }
     
     return (
-        <Layout title="Dashboard" description={`Great Day ${name}!`} className="container-fluid">
+        <Layout title="Dashboard" description={`Great Day ${name}!`} className="container-fluid mt-5">
             <div className="row">
                 <div className="col-3">
                     { userLinks() }
