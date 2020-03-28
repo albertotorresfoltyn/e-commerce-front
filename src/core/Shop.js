@@ -23,12 +23,12 @@ const Shop = props => {
   const [filteredResults, setFilteredResults] = useState([]);
 
   const init = () => {
-    debugger
+ 
     props.match.params.searchtext && setFilter(props.match.params.searchtext.split(" "));
   };
 
   const loadFilteredResults = newFilters => {
-    debugger
+  
     //console.log(newFilters);
     getFilteredProducts(skip, limit, props.match.params.searchtext).then(data => {
       if (data.error) {
@@ -100,10 +100,7 @@ const Shop = props => {
 
   return (
     <Layout title="Shop Page" description="Busqueda de Productos" className="">
-      <BannerStandar
-        title="Clean Easy"
-        description="Sabemos de limpieza"
-      ></BannerStandar>
+      <BannerStandar    searchp = {props.match.params.searchtext} ></BannerStandar>
 
       <div className="container-fluid" id="ShopContainer">
         <div className="">

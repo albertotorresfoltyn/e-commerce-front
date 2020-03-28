@@ -5,12 +5,13 @@ import { Link, Redirect } from 'react-router-dom';
 import Card from "./Card"
 import { MDBBtn } from "mdbreact";
 
-const Search = ({ history }) => {
+const Search = (params)  => {
 
+    debugger
     const [data, setData] = useState({
         categories: [],
         category: '',
-        search: '',
+        search:params.params.searchp,
         results: [],
         searched: false
     });
@@ -28,14 +29,24 @@ const Search = ({ history }) => {
             }
         })
     }
+    // const init = () => {
+    //  debugger
+    //  props;
+    //  this.props.location.search;
+    //  let loc = location.pathname.split("/")[2]
+    //     //Alberto: Como se rescata la puta ruta desde aca 
+    //     setData({ search: loc});
+    //   };
 
     useEffect(() => {
+        debugger
+        setData({ ...data, search:params.params.searchp, searched: false  })
         loadCategories()
     }, [])
 
     const shouldRedirect = redirect => {
-     console.log(history);
-        debugger
+  
+     
             return <Redirect to="/shop" />
      
     }
@@ -110,6 +121,7 @@ const Search = ({ history }) => {
                         className="form-control"
                         onChange={handleChange("search")}
                         placeholder="Necesitas un producto en especial?"
+                        value={search}
                     />
                    
                     <MDBBtn  color="primary" size="md" type="submit"  href={`/shop/${search}`}  className="mr-auto">Buscar</MDBBtn>
