@@ -35,6 +35,7 @@ const Product = props => {
         setError(data.error);
       } else {
         setProduct(data);
+        console.log(data)
         //fetch related products
         listRelated(data._id).then(data => {
           if (data.error) {
@@ -79,19 +80,25 @@ const Product = props => {
                     <Row>
 
                     {
+                     
                     product &&
                       product.photos &&
                       product.photos.map((item, i) => {
+                        debugger
                         counter = counter + 1;
                         return (
                           
                             <MDBCarouselItem key={counter} itemId={counter}>
-                          <MDBCardImage
                         
-                          src={`${API}/product/photo/${item.id}`}
-                          overlay='white-slight'
-                          className="m-auto mitadwidth"
-                        />
+                          <MDBCardImage
+                            top
+                            src={`${API}/product/photo/5e7e9f2d54bd5c491c3906dd`}
+                            overlay='white-slight'
+                        
+                            alt={item.name}
+                            className="m-auto maxWidth300"
+                            
+                          />
                          
                         </MDBCarouselItem>
                         );
