@@ -12,14 +12,14 @@ const Dashboard = () => {
     const userLinks = () => {
               return (
                   <div className="card">
-                      <h4 className="card-header">User links</h4>
+                      <h4 className="card-header">Opciones de Usuario</h4>
                       <ul className="list-group">
                           <li className="list-group-item">
-                              <Link className="nav-link" to="/cart">My Cart</Link>
+                              <Link className="nav-link" to="/cart">Mi Carrito</Link>
                           </li>
 
                           <li className="list-group-item">
-                              <Link className="nav-link" to="/profile/update">Update Profile</Link>  
+                              <Link className="nav-link" to="/profile/update">Modificar Perfil</Link>  
                           </li>  
                       
                       </ul>
@@ -32,7 +32,7 @@ const Dashboard = () => {
     const userInfo = () => {
         return (
             <div className="card mb-5">
-            <h3 className="card-header">User Information</h3>
+            <h3 className="card-header">Información de Usuario</h3>
             <ul className="list-group">
                 <li className="list-group-item">{name}</li>
                 <li className="list-group-item">{email}</li>
@@ -45,9 +45,9 @@ const Dashboard = () => {
     const purchaseHistory = () => {
         return (
             <div className="card mb-5">
-                <h3 className="card-header">Purchase History</h3>
+                <h3 className="card-header">Historial de Compra</h3>
                     <ul className="list-group">
-                        <li className="list-group-item">history</li>
+                        <li className="list-group-item">historial</li>
                     </ul>
             </div> 
         )
